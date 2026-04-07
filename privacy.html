@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreshDate — Privacy Policy</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #11181C;
+    --muted: #687076;
+    --surface: #f5f5f5;
+    --border: #E5E7EB;
+    --primary: #2E7D32;
+    --accent-bg: #E8F5E9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #151718;
+      --fg: #ECEDEE;
+      --muted: #9BA1A6;
+      --surface: #1e2022;
+      --border: #334155;
+      --primary: #66BB6A;
+      --accent-bg: #1b3a1b;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.7;
+    padding: 24px 16px 64px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; color: var(--primary); }
+  h2 { font-size: 20px; font-weight: 600; margin: 32px 0 12px; }
+  h3 { font-size: 16px; font-weight: 600; margin: 20px 0 8px; }
+  p { margin-bottom: 14px; color: var(--fg); }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
+  th { text-align: left; padding: 10px 12px; background: var(--accent-bg); color: var(--primary); font-weight: 600; border-bottom: 2px solid var(--border); }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
+  .badge { display: inline-block; background: var(--accent-bg); color: var(--primary); font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-right: 6px; margin-bottom: 4px; }
+  a { color: var(--primary); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .divider { height: 1px; background: var(--border); margin: 32px 0; }
+  .footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 48px; }
+  .nav { text-align: center; margin-bottom: 24px; }
+  .nav a { margin: 0 12px; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="/">Home</a>
+  <a href="/privacy">Privacy Policy</a>
+  <a href="/terms">Terms of Use</a>
+</div>
+
+<h1>Privacy Policy</h1>
+<p class="subtitle">FreshDate — Food Expiry Tracker &amp; Meal Planner<br>Last updated: 7 April 2026</p>
+
+<p>FreshDate ("the App") is designed to help you track food expiry dates, plan meals for your family, and reduce food waste. This privacy policy explains what information the App collects, how it is used, and the choices available to you. We are committed to protecting your privacy and handling your data responsibly.</p>
+
+<div class="divider"></div>
+
+<h2>1. Information We Collect</h2>
+
+<p>The App collects different categories of information depending on which features you use. The table below provides a complete overview of every data type the App may access.</p>
+
+<table>
+  <tr><th>Data Category</th><th>What Is Collected</th><th>Purpose</th></tr>
+  <tr><td><strong>Food Items</strong></td><td>Item names, expiry dates, categories, storage type, purchase dates, photos of food labels</td><td>Track food freshness, schedule expiry reminders, display items on calendar and lists</td></tr>
+  <tr><td><strong>Family Profiles</strong></td><td>Member names, ages, genders, dietary preferences, dietary restrictions, custom allergies</td><td>Calculate calorie targets, generate personalised recipes and meal plans</td></tr>
+  <tr><td><strong>Meal Plans</strong></td><td>Weekly meal schedules, recipe selections, eaten/completed status with timestamps</td><td>Organise weekly meals, track consumption, adjust food inventory</td></tr>
+  <tr><td><strong>Camera &amp; Photos</strong></td><td>Photos of food labels and barcodes captured within the App</td><td>Extract expiry dates via AI, look up product information via barcode</td></tr>
+  <tr><td><strong>Account Info</strong></td><td>User ID, display name, email address, login method (if you choose to sign in)</td><td>Authentication and session management</td></tr>
+  <tr><td><strong>Subscription Data</strong></td><td>Subscription status, plan type (free/premium), purchase receipts</td><td>Manage premium access and subscription entitlements</td></tr>
+  <tr><td><strong>Preferences</strong></td><td>Currency selection, notification settings, theme preference</td><td>Personalise the App experience</td></tr>
+</table>
+
+<h2>2. How Your Data Is Stored</h2>
+
+<p>The vast majority of your data is stored <strong>locally on your device</strong> using AsyncStorage (React Native's on-device key-value storage). This means your food items, family profiles, meal plans, and preferences remain on your phone and are not uploaded to any cloud database unless you explicitly use a feature that requires server processing.</p>
+
+<div class="card">
+  <h3>Local Storage (On Your Device)</h3>
+  <p style="margin-bottom: 8px;">The following data never leaves your device under normal use:</p>
+  <span class="badge">Food Items</span>
+  <span class="badge">Family Profiles</span>
+  <span class="badge">Meal Plans</span>
+  <span class="badge">Preferences</span>
+  <span class="badge">Notification IDs</span>
+</div>
+
+<div class="card">
+  <h3>Secure Storage (Device Keychain / Keystore)</h3>
+  <p>If you sign in, your authentication session token is stored in your device's secure enclave (iOS Keychain or Android Keystore), which provides hardware-level encryption.</p>
+</div>
+
+<h2>3. Data Transmitted to Our Server</h2>
+
+<p>Certain features require sending data to our server for AI-powered processing. The server processes these requests in real time and does not permanently store the data sent. The table below details each transmission.</p>
+
+<table>
+  <tr><th>Feature</th><th>Data Sent</th><th>What Happens</th></tr>
+  <tr><td>Date Extraction</td><td>Photo of food label</td><td>Image is uploaded to secure storage and analysed by AI to extract the expiry date. The image is used solely for this purpose.</td></tr>
+  <tr><td>Recipe Generation</td><td>Food item names, expiry dates, family member info (name, age, gender, dietary preferences)</td><td>AI generates personalised recipe suggestions. No data is retained after the response is returned.</td></tr>
+  <tr><td>Meal Plan Generation</td><td>Food item names, family member info, dietary preferences</td><td>AI creates a weekly meal plan. Data is processed in memory and not stored.</td></tr>
+</table>
+
+<h2>4. Third-Party Services</h2>
+
+<p>The App integrates with the following third-party services, each with their own privacy practices:</p>
+
+<table>
+  <tr><th>Service</th><th>Purpose</th><th>Data Shared</th></tr>
+  <tr><td><a href="https://world.openfoodfacts.org/terms-of-use" target="_blank">Open Food Facts</a></td><td>Barcode product lookup</td><td>Barcode number only. Returns product name, nutrition facts, and Nutri-Score. Open Food Facts is a free, open, collaborative database.</td></tr>
+  <tr><td><a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat</a></td><td>Subscription management</td><td>Anonymous app user ID, subscription status, and purchase receipts. Used to manage premium subscriptions via Apple App Store and Google Play Store billing. RevenueCat does not receive your name, email, or personal information.</td></tr>
+  <tr><td>OAuth Provider</td><td>Optional user authentication</td><td>Standard OAuth flow (email, name). Only used if you choose to sign in.</td></tr>
+</table>
+
+<p>We do not use any analytics services, advertising networks, crash reporting tools, or tracking SDKs. The App contains no advertisements.</p>
+
+<h2>5. Subscriptions &amp; Payments</h2>
+
+<p>FreshDate offers optional premium subscriptions managed through Apple App Store (iOS) and Google Play Store (Android). All payment processing is handled entirely by Apple or Google — we never see, collect, or store your payment card details, bank information, or billing address. Subscription status is managed through RevenueCat, which receives only an anonymous user identifier and purchase receipts to verify entitlements.</p>
+
+<h2>6. Permissions</h2>
+
+<p>The App requests the following device permissions, each of which you can grant or deny independently:</p>
+
+<table>
+  <tr><th>Permission</th><th>When Requested</th><th>Why It Is Needed</th></tr>
+  <tr><td><strong>Camera</strong></td><td>When you tap "Scan" to capture a food label or barcode</td><td>Required to photograph food labels for AI date extraction and to scan barcodes for product lookup</td></tr>
+  <tr><td><strong>Notifications</strong></td><td>When you add your first food item</td><td>Required to send expiry reminders (3 days before, 1 day before, and day of expiry)</td></tr>
+</table>
+
+<p>All permissions are optional. If you decline a permission, the corresponding feature will be unavailable, but the rest of the App will continue to function normally.</p>
+
+<h2>7. Data We Do Not Collect</h2>
+
+<div class="card">
+  <p>FreshDate does <strong>not</strong> collect, access, or transmit any of the following:</p>
+  <p style="margin-bottom: 0;">
+    Advertising identifiers or device fingerprints &bull;
+    Browsing history or search history &bull;
+    Contacts, calendar events, or health data &bull;
+    Background location tracking &bull;
+    Call logs, SMS messages, or microphone audio &bull;
+    Financial or payment card information &bull;
+    Usage analytics or behavioural tracking data
+  </p>
+</div>
+
+<h2>8. Data Retention &amp; Deletion</h2>
+
+<p>Since your data is stored locally on your device, you have full control over it at all times. You can delete individual food items, family members, or meal plans directly within the App. To remove all App data at once, use the <strong>"Delete Account"</strong> option in Settings, which clears all local data, cancels scheduled notifications, and requests server-side account deletion if you are signed in. Alternatively, you can uninstall the App or clear its storage through your device's settings. Server-side AI processing is stateless — data sent for recipe generation or date extraction is processed in memory and discarded immediately after the response is returned.</p>
+
+<h2>9. Data Security</h2>
+
+<p>We take reasonable measures to protect your information. Authentication tokens are stored in your device's hardware-backed secure storage (iOS Keychain or Android Keystore). Photos uploaded for date extraction are transmitted over HTTPS and stored in encrypted cloud storage. All communication between the App and our server uses TLS encryption.</p>
+
+<h2>10. Children's Privacy</h2>
+
+<p>FreshDate is a family-oriented app that allows parents to create profiles for children as part of meal planning. The App does not independently collect data from children. All family member profiles, including those for children, are created and managed by the adult user of the App. We do not knowingly collect personal information directly from children under 13 (or the applicable age in your jurisdiction).</p>
+
+<h2>11. Your Rights</h2>
+
+<p>Because your data is stored locally on your device, you inherently have full access to, and control over, all of your information. You may view, edit, or delete any data at any time through the App's interface. If you have signed in and wish to delete your account, you may do so through Settings &gt; Delete Account. Under GDPR (UK/EU) and similar regulations, you have the right to access, rectify, erase, and port your data. For any data-related requests that cannot be handled through the App, please contact us using the details below.</p>
+
+<h2>12. Changes to This Policy</h2>
+
+<p>We may update this privacy policy from time to time to reflect changes in the App's features or applicable regulations. When we make material changes, we will update the "Last updated" date at the top of this page. We encourage you to review this policy periodically.</p>
+
+<h2>13. Contact Us</h2>
+
+<p>If you have any questions, concerns, or requests regarding this privacy policy or the App's data practices, please reach out to us at:</p>
+
+<div class="card">
+  <p style="margin-bottom: 0;"><strong>FreshDate Support</strong><br>
+  Email: <a href="mailto:info@freshdate.co.uk">info@freshdate.co.uk</a><br>
+  Website: <a href="https://freshdate.co.uk">freshdate.co.uk</a></p>
+</div>
+
+<div class="divider"></div>
+<p class="footer">FreshDate &copy; 2026. All rights reserved.</p>
+
+</body>
+</html>
