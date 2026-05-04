@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "4362A6CK28.space.manus.food.expiry.tracker.t20260322160538",
+        "paths": ["/auth/callback", "/auth/callback/*", "/invite", "/invite/*"]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "4362A6CK28.space.manus.food.expiry.tracker.t20260322160538"
+    ]
+  }
+}
