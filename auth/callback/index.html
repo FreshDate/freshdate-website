@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opening FreshDate…</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      text-align: center;
+    }
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      background: #2ECC71;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    p { font-size: 15px; color: #9BA1A6; margin-bottom: 32px; line-height: 1.5; }
+    .btn {
+      display: inline-block;
+      background: #2ECC71;
+      color: #000;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      margin-bottom: 16px;
+    }
+    .note { font-size: 13px; color: #687076; }
+  </style>
+</head>
+<body>
+  <div class="logo">🥦</div>
+  <h1>Opening FreshDate…</h1>
+  <p>If the app doesn't open automatically,  
+tap the button below.</p>
+  <a class="btn" id="open-app-btn" href="#">Open FreshDate</a>
+  <p class="note">Make sure FreshDate is installed on your device.</p>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var token_hash = params.get('token_hash') || '';
+      var type = params.get('type') || 'email';
+      var deepLink = 'freshdate://auth/callback?token_hash=' + encodeURIComponent(token_hash) + '&type=' + encodeURIComponent(type);
+      document.getElementById('open-app-btn').href = deepLink;
+      window.location.replace(deepLink);
+    })();
+  </script>
+</body>
+</html>
