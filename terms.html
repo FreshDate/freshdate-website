@@ -1,202 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FreshDate — Terms of Use</title>
-<style>
-  :root {
-    --bg: #ffffff;
-    --fg: #11181C;
-    --muted: #687076;
-    --surface: #f5f5f5;
-    --border: #E5E7EB;
-    --primary: #2E7D32;
-    --accent-bg: #E8F5E9;
-  }
-  @media (prefers-color-scheme: dark) {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Use — FreshDate</title>
+  <meta name="description" content="FreshDate Terms of Use — the rules governing use of the FreshDate app and website.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #151718;
-      --fg: #ECEDEE;
-      --muted: #9BA1A6;
-      --surface: #1e2022;
-      --border: #334155;
-      --primary: #66BB6A;
-      --accent-bg: #1b3a1b;
+      --green-50: #f0fdf4; --green-100: #dcfce7; --green-200: #bbf7d0;
+      --green-600: #16a34a; --green-700: #15803d; --green-800: #166534; --green-900: #14532d;
+      --slate-50: #f8fafc; --slate-100: #f1f5f9; --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1; --slate-400: #94a3b8; --slate-500: #64748b;
+      --slate-600: #475569; --slate-700: #334155; --slate-800: #1e293b;
+      --slate-900: #0f172a; --white: #ffffff;
     }
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--fg);
-    line-height: 1.7;
-    padding: 24px 16px 64px;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; color: var(--primary); }
-  h2 { font-size: 20px; font-weight: 600; margin: 32px 0 12px; }
-  h3 { font-size: 16px; font-weight: 600; margin: 20px 0 8px; }
-  p { margin-bottom: 14px; color: var(--fg); }
-  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
-  table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
-  th { text-align: left; padding: 10px 12px; background: var(--accent-bg); color: var(--primary); font-weight: 600; border-bottom: 2px solid var(--border); }
-  td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
-  tr:last-child td { border-bottom: none; }
-  a { color: var(--primary); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .divider { height: 1px; background: var(--border); margin: 32px 0; }
-  .footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 48px; }
-  .nav { text-align: center; margin-bottom: 24px; }
-  .nav a { margin: 0 12px; font-size: 14px; }
-</style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--white);
+      color: var(--slate-700);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .nav-inner {
+      max-width: 1120px; margin: 0 auto; padding: 0 24px;
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 36px; height: 36px; border-radius: 9px; }
+    .nav-logo-text { font-size: 18px; font-weight: 700; color: var(--slate-900); }
+    .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--slate-600); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--green-700); }
+    .nav-links a.active { color: var(--green-700); font-weight: 600; }
+
+    .page-header {
+      background: linear-gradient(160deg, var(--green-50) 0%, var(--white) 60%);
+      padding: 64px 24px 48px;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .page-header-inner { max-width: 760px; margin: 0 auto; }
+    .breadcrumb { font-size: 13px; color: var(--slate-400); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--green-600); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .page-header h1 {
+      font-size: clamp(28px, 4vw, 40px); font-weight: 800;
+      color: var(--slate-900); letter-spacing: -1px; margin-bottom: 12px;
+    }
+    .page-header-meta { font-size: 14px; color: var(--slate-400); }
+    .page-header-meta strong { color: var(--slate-600); }
+
+    .content-wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }
+
+    h2 {
+      font-size: 20px; font-weight: 700; color: var(--slate-900);
+      margin: 48px 0 14px; letter-spacing: -0.3px;
+      padding-top: 48px; border-top: 1px solid var(--slate-100);
+    }
+    h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+    h3 { font-size: 16px; font-weight: 600; color: var(--slate-800); margin: 28px 0 10px; }
+    p { font-size: 15px; color: var(--slate-600); margin-bottom: 16px; line-height: 1.75; }
+    ul, ol { padding-left: 20px; margin-bottom: 16px; }
+    li { font-size: 15px; color: var(--slate-600); line-height: 1.75; margin-bottom: 6px; }
+    a { color: var(--green-600); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: var(--slate-800); font-weight: 600; }
+
+    .info-card {
+      background: var(--green-50); border: 1px solid var(--green-200);
+      border-radius: 12px; padding: 20px 24px; margin: 24px 0;
+    }
+    .info-card p { margin: 0; color: var(--green-800); font-size: 14px; }
+    .info-card strong { color: var(--green-900); }
+
+    .warning-card {
+      background: #fff7ed; border: 1px solid #fed7aa;
+      border-radius: 12px; padding: 20px 24px; margin: 24px 0;
+    }
+    .warning-card p { margin: 0; color: #9a3412; font-size: 14px; }
+
+    footer {
+      background: var(--slate-900); padding: 40px 24px;
+    }
+    .footer-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .footer-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .footer-logo-text { font-size: 16px; font-weight: 700; color: var(--white); }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: var(--slate-400); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 13px; color: var(--slate-500); width: 100%; text-align: center; margin-top: 8px; }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+  </style>
 </head>
 <body>
 
-<div class="nav">
-  <a href="/">Home</a>
-  <a href="/privacy">Privacy Policy</a>
-  <a href="/terms">Terms of Use</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="icon.png" alt="FreshDate">
+      <span class="nav-logo-text">FreshDate</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/privacy">Privacy Policy</a></li>
+      <li><a href="/terms" class="active">Terms of Use</a></li>
+      <li><a href="mailto:info@freshdate.co.uk">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="/">FreshDate</a> &rsaquo; Terms of Use</div>
+    <h1>Terms of Use</h1>
+    <p class="page-header-meta">
+      <strong>FreshDate Ltd</strong> &nbsp;&middot;&nbsp;
+      Last updated: 6 May 2026 &nbsp;&middot;&nbsp; Version 2.0 &nbsp;&middot;&nbsp;
+      Governed by the laws of England &amp; Wales
+    </p>
+  </div>
 </div>
 
-<h1>Terms of Use</h1>
-<p class="subtitle">FreshDate — Food Expiry Tracker &amp; Meal Planner<br>Last updated: 6 May 2026 • Version 2.1</p>
+<div class="content-wrap">
 
-<p>FreshDate — Terms &amp; Conditions</p>
-<p>FreshDate Ltd  •  Last updated: 6 May 2026  •  Version 2.1</p>
-<h2>1. Acceptance of Terms</h2>
-<p>By downloading, installing, or using the FreshDate mobile application (“App”), you agree to be bound by these Terms &amp; Conditions (“Terms”). If you do not agree, do not use the App.</p>
-<p>FreshDate Ltd (“we”, “us”, “our”) reserves the right to modify these Terms at any time. Continued use of the App after changes constitutes acceptance. We will notify you of material changes by email or in-app prompt.</p>
-<p>Governing law: These Terms are governed by the laws of England and Wales.</p>
-<p>Data practices: Your use of the App is also governed by our Privacy Policy, available at freshdate.co.uk/privacy.</p>
-<h2>2. Description of Service</h2>
-<p>FreshDate is a mobile application that helps users track food expiry dates, generate meal plans, and manage family dietary profiles. The App uses artificial intelligence to extract expiry dates from food labels and to suggest recipes based on available ingredients. Available on iOS and Android.</p>
-<p>Key features:</p>
-<p>AI-powered expiry date scanning from food packaging (via Manus LLM)</p>
-<p>Food inventory tracking and management</p>
-<p>Meal planning and recipe suggestions (powered by TheMealDB)</p>
-<p>Multi-user household profiles</p>
-<p>Push notifications for expiring items</p>
-<p>Dietary preference and family profile management</p>
-<h2>3. Health &amp; Illness Disclaimer</h2>
-<h3>3.1 No Liability for Health Outcomes</h3>
-<p>We are NOT responsible for any illness, food poisoning, allergic reactions, or adverse health events resulting from your use of the App or reliance on any information provided, including:</p>
-<p>Consumption of food items tracked in the App</p>
-<p>Reliance on AI-generated expiry dates or food safety information</p>
-<p>Nutritional information or meal suggestions provided by the App</p>
-<p>Failure to verify expiry dates, ingredients, or allergen information on the packaging</p>
-<h3>3.2 Medical Conditions</h3>
-<p>If you have diabetes, allergies, pregnancy-related dietary restrictions, or any other medical condition affecting diet or nutrition, consult a qualified healthcare professional before making food decisions based on this App.</p>
-<h3>3.3 Allergen Information</h3>
-<p>The App may display allergen information sourced from third-party recipe and nutritional databases. This information may be incomplete or inaccurate. Always:</p>
-<p>Read the full ingredient list on the product packaging</p>
-<p>Check for allergen warnings and “may contain” statements on the label</p>
-<p>Verify allergen information directly with the manufacturer if in doubt</p>
-<p>Never rely solely on the App for allergen information</p>
-<p>If you have a severe food allergy, do not use the App as your primary or sole source of allergen information.</p>
-<h3>3.4 Individual Responsibility</h3>
-<p>Your use of this App is at your own risk. You assume full responsibility for decisions made based on information provided by the App. Follow UK Food Standards Agency (FSA) guidelines for safe food handling and storage.</p>
-<h2>4. Food Safety &amp; AI Limitations</h2>
-<h3>4.1 AI Extraction Limitations</h3>
-<p>The App uses Manus LLM to extract expiry dates from food packaging photos. AI extraction has known limitations:</p>
-<p>May misread faint, stamped, embossed, or dot-matrix printed dates</p>
-<p>May confuse batch codes, production dates, or other markings with expiry dates</p>
-<p>May fail on non-English packaging or unusual date formats</p>
-<p>Accuracy not guaranteed under all lighting or packaging conditions</p>
-<p>You must always verify expiry dates by reading the packaging directly. The App is a convenience tool, not a replacement for personal verification.</p>
-<h3>4.2 Date Labelling Standards</h3>
-<p>Different countries and food types use different standards (Best Before, Use By, Sell By, etc.). The App attempts to categorise these, but you are responsible for understanding the meaning of each date type on your specific products.</p>
-<h3>4.3 Storage Conditions</h3>
-<p>The App does not account for improper storage, temperature abuse, or contamination. Even if an expiry date has not passed, food may be unsafe. Always use your senses — if food looks or smells unusual, discard it immediately.</p>
-<h2>5. Subscription &amp; Payments</h2>
-<h3>5.1 Tiers</h3>
-<p>Free Tier: Limited to 10 food items and 2 household members.</p>
-<p>Premium Tier: Unlimited items and members. Billed monthly (£4.99/month) or annually (£39.99/year).</p>
-<h3>5.2 Billing &amp; Auto-Renewal</h3>
-<p>Subscriptions are managed by RevenueCat and billed through Apple App Store or Google Play. Subscriptions automatically renew unless cancelled at least 24 hours before the renewal date.</p>
-<h3>5.3 Cancellation</h3>
-<p>You may cancel at any time through your device’s App Store or Google Play settings. Cancellation takes effect at the end of the current billing period. No refunds are issued for partial months or unused periods.</p>
-<h3>5.4 Refunds</h3>
-<p>Refund requests are handled by Apple or Google in accordance with their respective policies. We do not process refunds directly. Contact Apple or Google Support for refund enquiries.</p>
-<h3>5.5 Price Changes</h3>
-<p>Prices may change with 30 days’ notice. You may cancel before any new price takes effect.</p>
-<h2>6. Household Sharing &amp; Family Profiles</h2>
-<h3>6.1 Shared Access</h3>
-<p>The App allows you to create household profiles and invite family members to share a household. Each member with access can:</p>
-<p>View and manage shared food inventory</p>
-<p>Add, edit, or delete food items</p>
-<p>Receive expiry notifications</p>
-<h3>6.2 Responsibility</h3>
-<p>Each user is responsible for their own food safety decisions. We are not responsible for disputes, miscommunication, or food safety issues arising from shared household use. You agree to use the App responsibly and not to add false or misleading information. You are responsible for supervising children’s use of the App.</p>
-<h2>7. Camera &amp; Photo Data</h2>
-<p>When you use the camera scanner:</p>
-<p>Photos are temporarily uploaded to secure Amazon S3 storage (food-labels/ bucket)</p>
-<p>Photos are processed by Manus LLM for expiry date extraction</p>
-<p>Photos are deleted from our servers immediately after processing (within seconds)</p>
-<p>Photos are NOT permanently stored or used for any other purpose</p>
-<p>OCR-extracted text (dates, product names) is retained as part of your food inventory</p>
-<p>You must grant camera permission in your device settings to use this feature. You can revoke camera access at any time, which will disable the scanner. Full details of how photo data is handled are in our Privacy Policy at freshdate.co.uk/privacy.</p>
-<h2>8. Third-Party Services &amp; Integrations</h2>
-<p>The App integrates with the following third-party services. Your use is subject to their terms and privacy policies. We are not responsible for the availability, accuracy, or practices of these services.</p>
-<p>Supabase: Authentication and session management.</p>
-<p>MySQL: Primary database for app data (food inventory, household data, meal plans).</p>
-<p>Amazon Web Services (S3): Temporary photo storage during AI processing.</p>
-<p>Manus LLM (forge.manus.im): AI-powered OCR for expiry date extraction.</p>
-<p>RevenueCat: Subscription management and entitlements.</p>
-<p>Apple App Store / Google Play: App distribution and payment processing.</p>
-<p>TheMealDB: Recipe and meal planning data.</p>
-<p>Expo / Firebase: Push notification delivery.</p>
-<h2>9. Push Notifications</h2>
-<p>The App sends push notifications to remind you of expiring food items. You can customise notification timing in Settings or disable notifications entirely through your device settings. We are not responsible for missed notifications due to device settings, network issues, or service outages.</p>
-<h2>10. User-Generated Content</h2>
-<p>You may add notes, meal plans, and custom food items to the App. You grant us a limited, non-exclusive licence to store and display this content within your household. You retain ownership of all content you create and can delete it at any time. We are not responsible for loss of content due to technical failures, account deletion, or service discontinuation.</p>
-<h2>11. Intellectual Property</h2>
-<p>The App, including all code, design, graphics, and content, is owned by FreshDate Ltd or licensed from third parties. You may not reproduce, modify, distribute, or reverse-engineer any part of the App without written permission. Recipe data from TheMealDB is subject to their licensing terms.</p>
-<h2>12. Account Termination</h2>
-<p>We reserve the right to suspend or terminate your account if you:</p>
-<p>Violate these Terms &amp; Conditions</p>
-<p>Engage in abusive or fraudulent behaviour</p>
-<p>Attempt to hack or compromise the App or other users’ accounts</p>
-<p>Violate applicable laws</p>
-<p>Upon termination, your data will be deleted within 30 days. You will lose access to any premium features.</p>
-<h2>13. Data Retention &amp; Deletion</h2>
-<p>Active accounts: Your data is retained as long as your account is active.</p>
-<p>Deleted accounts: All personal data (account info, food inventory, household data) is permanently deleted within 30 days. Backups may retain data for up to 90 days for disaster recovery.</p>
-<p>Photos: Temporary photos used for scanning are deleted immediately after processing (within seconds).</p>
-<p>Full retention details are in our Privacy Policy at freshdate.co.uk/privacy.</p>
-<h2>14. Limitation of Liability</h2>
-<p>No liability for illness or injury: We are not liable for illness, food poisoning, allergic reactions, injury, or death resulting from your use of the App or reliance on any information provided.</p>
-<p>Limited damages: Our total liability is limited to the amount you have paid in the past 12 months (£0 if you use the free tier).</p>
-<p>No indirect damages: We are not liable for lost profits, lost data, business interruption, or any indirect or consequential damages.</p>
-<p>No accuracy guarantee: The App is provided “as-is”. We do not guarantee accuracy of expiry dates, nutritional data, or recipes.</p>
-<p>No liability for third-party services: We are not responsible for the availability or accuracy of Supabase, RevenueCat, TheMealDB, or any other third-party service.</p>
-<h2>15. Indemnification</h2>
-<p>You agree to indemnify and hold harmless FreshDate Ltd, its officers, employees, and agents from any claims, damages, losses, or expenses (including legal fees) arising from:</p>
-<p>Your use of the App</p>
-<p>Your violation of these Terms</p>
-<p>Your violation of any applicable law</p>
-<p>Food safety incidents or health issues resulting from your use of the App</p>
-<h2>16. Disclaimers</h2>
-<p>No medical advice: The App does not provide medical, nutritional, or dietary advice. Consult a healthcare professional for medical concerns.</p>
-<p>No food safety guarantee: The App does not guarantee food safety. Follow UK Food Standards Agency (FSA) guidelines for safe food handling and storage.</p>
-<p>AI limitations: Expiry date extraction is performed by AI and may be inaccurate. Always verify dates by reading the packaging directly.</p>
-<p>Third-party data: Recipe and nutritional data from TheMealDB may be incomplete or inaccurate. Verify information from reliable sources.</p>
-<p>Service availability: The App is provided “as-is.” We do not guarantee uninterrupted service or that the App will be free from errors or bugs.</p>
-<h2>17. Contact Us</h2>
-<p>For questions about these Terms, contact:</p>
-<p>Email: info@freshdate.co.uk</p>
-<p>Website: https://freshdate.co.uk</p>
-<h2>18. Governing Law</h2>
-<p>These Terms are governed by the laws of England and Wales. Any disputes shall be resolved in the courts of England and Wales.</p>
-<h2>19. Severability</h2>
-<p>If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.</p>
-<p>© 2026 FreshDate Ltd. All rights reserved.</p>
-<p>Last updated: 6 May 2026  |  Governed by the laws of England and Wales.</p>
+  <div class="info-card">
+    <p><strong>Plain English summary:</strong> Use FreshDate to track your food and reduce waste. Don't misuse the app or try to harm other users. The app is provided as-is — we're not liable for food safety decisions. Subscriptions are managed through Apple and Google. Questions? Email <a href="mailto:info@freshdate.co.uk" style="color:var(--green-700);">info@freshdate.co.uk</a>.</p>
+  </div>
 
+  <h2>1. Acceptance of Terms</h2>
+  <p>By downloading, installing, or using the FreshDate mobile application ("App") or website at freshdate.co.uk ("Website"), you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, do not use the App or Website.</p>
+  <p>These Terms constitute a legally binding agreement between you and FreshDate Ltd, a company registered in England and Wales.</p>
 
-<div class="divider"></div>
-<p class="footer">FreshDate &copy; 2026. All rights reserved.</p>
+  <h2>2. Description of Service</h2>
+  <p>FreshDate is a food expiry tracking and household management application that provides:</p>
+  <ul>
+    <li>AI-powered scanning of food labels to detect expiry dates</li>
+    <li>Food inventory tracking with expiry notifications</li>
+    <li>AI-generated meal planning and recipe suggestions</li>
+    <li>Shopping list management</li>
+    <li>Family profile management with dietary preferences</li>
+    <li>Freezer management with safe storage guidance</li>
+  </ul>
+
+  <h2>3. Eligibility</h2>
+  <p>You must be at least 13 years of age to use the App. By using the App, you represent that you are at least 13 years old. Users between 13 and 18 must have parental or guardian consent.</p>
+
+  <h2>4. User Accounts</h2>
+  <p>To access certain features, you may need to create an account. You are responsible for:</p>
+  <ul>
+    <li>Maintaining the confidentiality of your account credentials</li>
+    <li>All activity that occurs under your account</li>
+    <li>Notifying us immediately of any unauthorised use of your account</li>
+  </ul>
+  <p>You may use the App without an account — food data will be stored locally on your device only.</p>
+
+  <h2>5. Subscriptions &amp; Payments</h2>
+  <h3>5.1 Free Tier</h3>
+  <p>The App is free to download and use with the following limitations: up to 10 food items, 2 household profiles, and no access to the meal planner.</p>
+  <h3>5.2 Premium Subscription</h3>
+  <p>Premium subscriptions unlock unlimited items, unlimited profiles, AI meal planning, and all future premium features. Subscriptions are available as:</p>
+  <ul>
+    <li><strong>Monthly:</strong> £4.99 per month</li>
+    <li><strong>Annual:</strong> £39.99 per year (equivalent to £3.33/month)</li>
+  </ul>
+  <h3>5.3 Billing &amp; Cancellation</h3>
+  <p>Subscriptions are processed and managed through Apple App Store or Google Play. Payment is charged to your App Store or Google Play account at confirmation of purchase. Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period. You can manage and cancel subscriptions in your App Store or Google Play account settings. We do not issue refunds for partial subscription periods, except where required by applicable law.</p>
+  <h3>5.4 Price Changes</h3>
+  <p>We reserve the right to change subscription prices. We will provide at least 30 days' notice of any price increase. Continued use of the subscription after the price change takes effect constitutes acceptance of the new price.</p>
+
+  <h2>6. Food Safety Disclaimer</h2>
+  <div class="warning-card">
+    <p><strong>Important:</strong> FreshDate provides food expiry tracking as a convenience tool only. The App is not a substitute for your own judgement regarding food safety. Always use your senses — sight, smell, and taste — to assess whether food is safe to eat. Expiry dates are guidelines, not guarantees. FreshDate Ltd accepts no liability for illness, injury, or loss arising from reliance on dates displayed in the App.</p>
+  </div>
+  <p>Specifically:</p>
+  <ul>
+    <li>AI-detected expiry dates may contain errors — always verify against the physical label.</li>
+    <li>Estimated shelf-life suggestions (where the scanner cannot read a date) are approximations based on general guidelines and may not reflect your specific storage conditions.</li>
+    <li>Freezer storage times and defrost windows are based on UK Food Standards Agency guidelines and are general recommendations only.</li>
+    <li>Nutritional information is sourced from USDA databases and is provided for general guidance only, not medical or dietary advice.</li>
+  </ul>
+
+  <h2>7. Acceptable Use</h2>
+  <p>You agree not to:</p>
+  <ul>
+    <li>Use the App for any unlawful purpose or in violation of any applicable laws</li>
+    <li>Attempt to reverse-engineer, decompile, or disassemble the App</li>
+    <li>Attempt to gain unauthorised access to any part of the App or its infrastructure</li>
+    <li>Use the App to transmit any harmful, offensive, or illegal content</li>
+    <li>Interfere with or disrupt the integrity or performance of the App</li>
+    <li>Use automated means to access or scrape the App or its data</li>
+  </ul>
+
+  <h2>8. Intellectual Property</h2>
+  <p>The App, including its design, code, content, and branding, is owned by FreshDate Ltd and protected by copyright, trademark, and other intellectual property laws. You are granted a limited, non-exclusive, non-transferable licence to use the App for personal, non-commercial purposes.</p>
+  <p>The FreshDate name, logo, and tagline "Know what's fresh. Waste nothing." are trademarks of FreshDate Ltd.</p>
+
+  <h2>9. User Content</h2>
+  <p>You retain ownership of all data you enter into the App (food items, meal plans, family profiles). By using the App, you grant FreshDate Ltd a limited licence to process this data solely for the purpose of providing the service to you. We do not use your food data for advertising, profiling, or sale to third parties.</p>
+
+  <h2>10. Limitation of Liability</h2>
+  <p>To the maximum extent permitted by applicable law, FreshDate Ltd shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the App, including but not limited to loss of data, loss of profits, or any food safety incidents.</p>
+  <p>Our total liability to you for any claim arising from these Terms or your use of the App shall not exceed the amount you paid for your subscription in the 12 months preceding the claim, or £10, whichever is greater.</p>
+  <p>Nothing in these Terms excludes or limits our liability for death or personal injury caused by our negligence, fraud, or any other liability that cannot be excluded by law.</p>
+
+  <h2>11. Indemnification</h2>
+  <p>You agree to indemnify and hold harmless FreshDate Ltd, its officers, directors, employees, and agents from any claims, damages, losses, or expenses (including legal fees) arising from your use of the App, your violation of these Terms, or your violation of any third-party rights.</p>
+
+  <h2>12. Termination</h2>
+  <p>We reserve the right to suspend or terminate your account and access to the App at any time, with or without notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties. You may delete your account at any time within the App under Settings &rarr; Account &rarr; Delete Account.</p>
+
+  <h2>13. Changes to These Terms</h2>
+  <p>We may update these Terms from time to time. We will notify you of material changes by email or in-app notification at least 14 days before the changes take effect. Continued use of the App after changes take effect constitutes acceptance of the updated Terms.</p>
+
+  <h2>14. Governing Law &amp; Disputes</h2>
+  <p>These Terms are governed by the laws of England and Wales. Any disputes arising from these Terms or your use of the App shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+  <p>Before initiating any legal proceedings, we encourage you to contact us at <a href="mailto:info@freshdate.co.uk">info@freshdate.co.uk</a> to resolve the matter informally.</p>
+
+  <h2>15. Contact</h2>
+  <p>For any questions about these Terms, contact us at:</p>
+  <ul>
+    <li><strong>Email:</strong> <a href="mailto:info@freshdate.co.uk">info@freshdate.co.uk</a></li>
+    <li><strong>Website:</strong> <a href="https://freshdate.co.uk">freshdate.co.uk</a></li>
+  </ul>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">
+      <img src="icon.png" alt="FreshDate">
+      <span class="footer-logo-text">FreshDate</span>
+    </a>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Use</a>
+      <a href="mailto:info@freshdate.co.uk">Contact</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 FreshDate Ltd. All rights reserved. Registered in England &amp; Wales.</p>
+  </div>
+</footer>
 
 </body>
 </html>

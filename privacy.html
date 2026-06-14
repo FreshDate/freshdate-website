@@ -1,243 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FreshDate — Privacy Policy</title>
-<style>
-  :root {
-    --bg: #ffffff;
-    --fg: #11181C;
-    --muted: #687076;
-    --surface: #f5f5f5;
-    --border: #E5E7EB;
-    --primary: #2E7D32;
-    --accent-bg: #E8F5E9;
-  }
-  @media (prefers-color-scheme: dark) {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — FreshDate</title>
+  <meta name="description" content="FreshDate Privacy Policy — how we collect, use, and protect your data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #151718;
-      --fg: #ECEDEE;
-      --muted: #9BA1A6;
-      --surface: #1e2022;
-      --border: #334155;
-      --primary: #66BB6A;
-      --accent-bg: #1b3a1b;
+      --green-50: #f0fdf4; --green-100: #dcfce7; --green-200: #bbf7d0;
+      --green-600: #16a34a; --green-700: #15803d; --green-800: #166534;
+      --slate-50: #f8fafc; --slate-100: #f1f5f9; --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1; --slate-400: #94a3b8; --slate-500: #64748b;
+      --slate-600: #475569; --slate-700: #334155; --slate-800: #1e293b;
+      --slate-900: #0f172a; --white: #ffffff;
     }
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--fg);
-    line-height: 1.7;
-    padding: 24px 16px 64px;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-  h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; color: var(--primary); }
-  h2 { font-size: 20px; font-weight: 600; margin: 32px 0 12px; }
-  h3 { font-size: 16px; font-weight: 600; margin: 20px 0 8px; }
-  p { margin-bottom: 14px; color: var(--fg); }
-  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
-  table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
-  th { text-align: left; padding: 10px 12px; background: var(--accent-bg); color: var(--primary); font-weight: 600; border-bottom: 2px solid var(--border); }
-  td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
-  tr:last-child td { border-bottom: none; }
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
-  .badge { display: inline-block; background: var(--accent-bg); color: var(--primary); font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-right: 6px; margin-bottom: 4px; }
-  a { color: var(--primary); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .divider { height: 1px; background: var(--border); margin: 32px 0; }
-  .footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 48px; }
-  .nav { text-align: center; margin-bottom: 24px; }
-  .nav a { margin: 0 12px; font-size: 14px; }
-</style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--white);
+      color: var(--slate-700);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .nav-inner {
+      max-width: 1120px; margin: 0 auto; padding: 0 24px;
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 36px; height: 36px; border-radius: 9px; }
+    .nav-logo-text { font-size: 18px; font-weight: 700; color: var(--slate-900); }
+    .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--slate-600); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--green-700); }
+    .nav-links a.active { color: var(--green-700); font-weight: 600; }
+
+    .page-header {
+      background: linear-gradient(160deg, var(--green-50) 0%, var(--white) 60%);
+      padding: 64px 24px 48px;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .page-header-inner { max-width: 760px; margin: 0 auto; }
+    .breadcrumb { font-size: 13px; color: var(--slate-400); margin-bottom: 16px; }
+    .breadcrumb a { color: var(--green-600); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .page-header h1 {
+      font-size: clamp(28px, 4vw, 40px); font-weight: 800;
+      color: var(--slate-900); letter-spacing: -1px; margin-bottom: 12px;
+    }
+    .page-header-meta { font-size: 14px; color: var(--slate-400); }
+    .page-header-meta strong { color: var(--slate-600); }
+
+    .content-wrap { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }
+
+    h2 {
+      font-size: 20px; font-weight: 700; color: var(--slate-900);
+      margin: 48px 0 14px; letter-spacing: -0.3px;
+      padding-top: 48px; border-top: 1px solid var(--slate-100);
+    }
+    h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+    h3 { font-size: 16px; font-weight: 600; color: var(--slate-800); margin: 28px 0 10px; }
+    p { font-size: 15px; color: var(--slate-600); margin-bottom: 16px; line-height: 1.75; }
+    ul, ol { padding-left: 20px; margin-bottom: 16px; }
+    li { font-size: 15px; color: var(--slate-600); line-height: 1.75; margin-bottom: 6px; }
+    a { color: var(--green-600); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: var(--slate-800); font-weight: 600; }
+
+    .info-card {
+      background: var(--green-50); border: 1px solid var(--green-200);
+      border-radius: 12px; padding: 20px 24px; margin: 24px 0;
+    }
+    .info-card p { margin: 0; color: var(--green-800); font-size: 14px; }
+    .info-card strong { color: var(--green-900); }
+
+    table { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 14px; }
+    th {
+      text-align: left; padding: 10px 14px;
+      background: var(--slate-50); color: var(--slate-700);
+      font-weight: 600; border-bottom: 2px solid var(--slate-200);
+      font-size: 13px; letter-spacing: 0.3px;
+    }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--slate-100); vertical-align: top; color: var(--slate-600); }
+    tr:last-child td { border-bottom: none; }
+
+    footer {
+      background: var(--slate-900); padding: 40px 24px;
+    }
+    .footer-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .footer-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .footer-logo-text { font-size: 16px; font-weight: 700; color: var(--white); }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: var(--slate-400); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 13px; color: var(--slate-500); width: 100%; text-align: center; margin-top: 8px; }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+  </style>
 </head>
 <body>
 
-<div class="nav">
-  <a href="/">Home</a>
-  <a href="/privacy">Privacy Policy</a>
-  <a href="/terms">Terms of Use</a>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="icon.png" alt="FreshDate">
+      <span class="nav-logo-text">FreshDate</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/privacy" class="active">Privacy Policy</a></li>
+      <li><a href="/terms">Terms of Use</a></li>
+      <li><a href="mailto:info@freshdate.co.uk">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="/">FreshDate</a> &rsaquo; Privacy Policy</div>
+    <h1>Privacy Policy</h1>
+    <p class="page-header-meta">
+      <strong>FreshDate Ltd</strong> &nbsp;&middot;&nbsp;
+      Last updated: 6 May 2026 &nbsp;&middot;&nbsp; Version 2.1 &nbsp;&middot;&nbsp;
+      Compliant with UK GDPR &amp; Data Protection Act 2018
+    </p>
+  </div>
 </div>
 
-<h1>Privacy Policy</h1>
-<p class="subtitle">FreshDate — Food Expiry Tracker &amp; Meal Planner<br>Last updated: 6 May 2026 • Version 2.1</p>
+<div class="content-wrap">
 
-<p>FreshDate — Privacy Policy</p>
-<p>FreshDate Ltd  •  Last updated: 6 May 2026  •  Version 2.1</p>
-<h2>1. Introduction</h2>
-<p>FreshDate Ltd (“we”, “us”, “our”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application (“App”).</p>
-<p>Please read this policy carefully. By using the App, you consent to our data practices as described herein. If you do not agree, do not use the App.</p>
-<p>Jurisdiction: FreshDate is operated in the United Kingdom and complies with the Data Protection Act 2018 and the UK General Data Protection Regulation (UK GDPR).</p>
-<h2>2. Data Controller &amp; Contact Information</h2>
-<p>Company: FreshDate Ltd</p>
-<p>Registered in: England &amp; Wales</p>
-<p>Email: info@freshdate.co.uk</p>
-<p>Data Protection Officer: info@freshdate.co.uk</p>
-<p>Website: https://freshdate.co.uk</p>
-<p>For any privacy-related enquiries, contact us at the email address above. We will respond within 30 days as required by UK GDPR.</p>
-<h2>3. What Information We Collect</h2>
-<p>We collect the following categories of personal data:</p>
-<h3>3.1 Account Information</h3>
-<p>Email address</p>
-<p>Name</p>
-<p>Password (hashed by Supabase — never stored or transmitted in plain text)</p>
-<h3>3.2 Food Inventory Data</h3>
-<p>Product names, expiry dates, quantities, categories, notes</p>
-<p>Item status — consumed, wasted, or still tracking</p>
-<p>Timestamps — when items were added, updated, or deleted</p>
-<h3>3.3 Household Information</h3>
-<p>Household name and member names</p>
-<p>Email addresses of people you invite to share a household</p>
-<p>Sharing preferences and access permissions</p>
-<h3>3.4 Family Profile Data</h3>
-<p>Profile name (e.g. “Andrew”, “Sarah”)</p>
-<p>Age and gender</p>
-<p>Activity level</p>
-<p>Dietary preferences (e.g. Vegetarian, Vegan)</p>
-<p>Dietary restrictions (e.g. gluten-free, dairy-free)</p>
-<p>Custom allergies (e.g. peanuts, shellfish)</p>
-<p>Calorie targets</p>
-<p>Note: Dietary restriction and allergy data is considered sensitive personal data under UK GDPR and is handled with additional care. It is used only to personalise meal suggestions and is never shared with third parties for marketing purposes.</p>
-<h3>3.5 Meal Plans &amp; Notes</h3>
-<p>Custom meal plans and what you plan to cook each day</p>
-<p>Dietary notes and preferences</p>
-<p>Linked food items marked as planned for use</p>
-<h3>3.6 Photo Data (Temporary)</h3>
-<p>Images of food packaging captured via the camera scanner</p>
-<p>OCR-extracted text — dates and product names detected from photos</p>
-<p>Important: Photos are uploaded temporarily to secure cloud storage (Amazon S3) and processed by Manus LLM for expiry date extraction. Photos are deleted immediately after processing (within seconds) and are NOT permanently stored. See Section 5 for full details.</p>
-<h3>3.7 Device &amp; Technical Information</h3>
-<p>Device type, OS version, app version</p>
-<p>Unique device identifier</p>
-<p>IP address — collected for security and abuse prevention</p>
-<p>Push notification device token</p>
-<h3>3.8 Usage Data</h3>
-<p>Features used, timestamps, session duration</p>
-<p>App crashes and error logs</p>
-<h2>4. How We Use Your Information</h2>
-<h2>5. Photo Data &amp; Temporary Storage</h2>
-<p>How photos are handled when you use the camera scanner:</p>
-<p>The photo is temporarily uploaded to our secure Amazon S3 storage (food-labels/ bucket)</p>
-<p>The photo is sent to Manus LLM (forge.manus.im) for AI-powered expiry date extraction</p>
-<p>The extracted date is saved to your food inventory</p>
-<p>The photo is deleted from Amazon S3 immediately after processing — within seconds</p>
-<p>Photos are NOT permanently stored, backed up, or used for any other purpose</p>
-<p>You can avoid photo uploads entirely by not using the camera scanner feature</p>
-<p>Retention period: Seconds to minutes during processing only. No photos are retained after processing completes.</p>
-<h2>6. Third-Party Data Sharing</h2>
-<p>We share your data with the following third-party service providers to deliver the App. Each is a data processor acting under our instructions.</p>
-<h3>6.1 Supabase — Authentication Only</h3>
-<p>Data shared: Email address, password hash, auth session tokens</p>
-<p>Purpose: User authentication and session management only</p>
-<p>What it does NOT store: Food inventory, household data, meal plans — these are stored in MySQL (see 6.2)</p>
-<p>Location: EU (GDPR compliant)</p>
-<p>Privacy: supabase.com/privacy</p>
-<h3>6.2 MySQL Database — App Data Storage</h3>
-<p>Data shared: User profile, food inventory, household data, meal plans, shopping lists, family profiles, push tokens</p>
-<p>Purpose: Primary storage for all app data</p>
-<p>Access: Data is accessed exclusively via the tRPC backend API; direct database access is restricted</p>
-<h3>6.3 Amazon Web Services (S3) — Temporary Photo Storage</h3>
-<p>Data shared: Food packaging photos (temporarily, during AI processing only)</p>
-<p>Purpose: Temporary storage of photos during expiry date extraction</p>
-<p>Retention: Photos deleted immediately after processing (within seconds)</p>
-<p>Privacy: aws.amazon.com/privacy</p>
-<h3>6.4 Manus LLM — AI Expiry Date Extraction</h3>
-<p>Data shared: Food packaging photos (temporarily)</p>
-<p>Purpose: OCR processing to extract expiry dates and product information from photos</p>
-<p>Retention: Photos processed on a per-request basis. Manus does not retain photos after the request completes.</p>
-<p>Endpoint: forge.manus.im</p>
-<h3>6.5 RevenueCat — Subscription Management</h3>
-<p>Data shared: Email, subscription status, entitlements, device ID</p>
-<p>Purpose: Manage premium subscriptions and billing</p>
-<p>Payment data: NOT shared with us — Apple/Google handle payments directly</p>
-<p>Privacy: revenuecat.com/privacy</p>
-<h3>6.6 TheMealDB — Recipes</h3>
-<p>Data shared: Recipe search queries (ingredient names only; no personal identifiers)</p>
-<p>Purpose: Provide recipe and meal planning suggestions</p>
-<p>Privacy: themealdb.com</p>
-<h3>6.7 Apple App Store / Google Play — Distribution &amp; Payments</h3>
-<p>Data shared: Device ID, app version, crash reports, payment data (handled entirely by Apple/Google)</p>
-<p>Purpose: App distribution and payment processing</p>
-<p>Privacy: apple.com/privacy  |  policies.google.com/privacy</p>
-<h3>6.8 Expo — Push Notifications</h3>
-<p>Data shared: Device push token, notification payload</p>
-<p>Purpose: Deliver push notifications for expiring items</p>
-<p>Privacy: expo.dev/privacy</p>
-<h3>6.9 Legal &amp; Regulatory Disclosure</h3>
-<p>We may disclose your data if required by law, court order, or government request. We will notify you of such requests unless legally prohibited from doing so.</p>
-<h2>7. Your Data Rights (UK GDPR)</h2>
-<p>Under UK GDPR, you have the following rights:</p>
-<p>Right of Access: Request a copy of your personal data. We will provide it within 30 days.</p>
-<p>Right of Rectification: Correct inaccurate or incomplete data.</p>
-<p>Right of Erasure: Request deletion of your data. We will delete it within 30 days.</p>
-<p>Right of Portability: Request your data in a machine-readable format (CSV/JSON).</p>
-<p>Right to Object: Object to processing of your data for marketing or analytics.</p>
-<p>Right to Restrict Processing: Request that we limit how we use your data.</p>
-<p>Right to Withdraw Consent: Withdraw consent at any time for processing based on consent (e.g. push notifications, marketing emails).</p>
-<p>To exercise any of these rights, contact us at info@freshdate.co.uk with “Privacy Request” in the subject line. We will respond within 30 days.</p>
-<h2>8. Data Security</h2>
-<p>We implement industry-standard security measures to protect your data:</p>
-<p>HTTPS/TLS encryption: All data in transit is encrypted</p>
-<p>Database encryption: Data at rest is encrypted</p>
-<p>Password security: Passwords are hashed using bcrypt by Supabase, never stored in plain text</p>
-<p>Secure local storage: Auth tokens stored in iOS Keychain / Android Keystore</p>
-<p>Access controls: Row-level security policies restrict access to user’s own data</p>
-<p>Principle of least privilege: Backend access to personal data is limited to what is strictly necessary</p>
-<p>Breach notification: In the event of a data breach, we will notify affected users within 72 hours and report to the ICO as required by UK GDPR.</p>
-<h2>9. Data Retention</h2>
-<h2>10. Children’s Privacy</h2>
-<p>The App is not intended for children under 13. We do not knowingly collect data from children under 13. If we become aware that a child under 13 has provided personal data, we will delete it immediately. Parents who believe their child has provided data should contact us at info@freshdate.co.uk.</p>
-<h2>11. International Data Transfers</h2>
-<p>Your data is primarily stored in EU data centres (Supabase). Some third-party services may process data outside the UK/EU:</p>
-<p>RevenueCat: US-based (Standard Contractual Clauses in place)</p>
-<p>Amazon S3: Multi-region; EU/UK regions used where available</p>
-<p>Manus LLM: Processed via forge.manus.im (appropriate safeguards in place)</p>
-<p>Expo / Apple / Google: Multi-region (Standard Contractual Clauses in place)</p>
-<p>For transfers outside the UK/EU, we rely on Standard Contractual Clauses (SCCs), the UK International Data Transfer Agreement, or other lawful transfer mechanisms.</p>
-<h2>12. App Store Privacy Label (Apple &amp; Google)</h2>
-<p>We do NOT use any data for cross-app tracking or third-party advertising.</p>
-<h3>12.1 Data Linked to You</h3>
-<p>Contact info: email address, name</p>
-<p>User content: food inventory, meal plans, shopping lists, family profiles (including dietary restrictions and allergies)</p>
-<p>Identifiers: user ID, device identifier, push notification token</p>
-<p>Purchases: subscription status, purchase history</p>
-<p>Usage data: features used, session duration</p>
-<p>Diagnostics: crash logs, error reports</p>
-<h3>12.2 Data Not Linked to You</h3>
-<p>Anonymised analytics</p>
-<p>Recipe search queries sent to TheMealDB (ingredient names only, no personal identifiers)</p>
-<h3>12.3 Data Used to Track You</h3>
-<p>None. FreshDate does not use any data for cross-app or cross-site tracking.</p>
-<h2>13. Cookies &amp; Similar Technologies</h2>
-<p>The App does not use cookies or similar tracking technologies directly. However, third-party services (Supabase, RevenueCat) may use cookies within their services. Please refer to their privacy policies for details.</p>
-<p>The App uses secure local storage (iOS Keychain / Android Keystore) for auth tokens and device preferences. This is not the same as cookies and cannot be used for cross-app tracking.</p>
-<h2>14. Marketing &amp; Communications</h2>
-<p>We may send you:</p>
-<p>Transactional emails: Account confirmations, password resets, subscription updates. These are required for the operation of the service and cannot be opted out of.</p>
-<p>App notifications: Expiry reminders (can be disabled in Settings or your device notification settings).</p>
-<p>Marketing emails: Feature updates, promotions (opt-in only). You can unsubscribe at any time via the link in any marketing email or by emailing info@freshdate.co.uk.</p>
-<h2>15. Policy Changes</h2>
-<p>We may update this Privacy Policy from time to time. Changes will be posted at freshdate.co.uk/privacy with an updated “Last Updated” date. For material changes, we will notify you by email or in-app prompt. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
-<h2>16. Your Rights — Quick Reference</h2>
-<h2>17. Contact Us</h2>
-<p>For privacy questions, data requests, or concerns, contact:</p>
-<p>Email: info@freshdate.co.uk</p>
-<p>Website: https://freshdate.co.uk</p>
-<p>Data Protection Officer: info@freshdate.co.uk</p>
-<p>We will respond to all enquiries within 30 days as required by UK GDPR.</p>
-<h2>18. Complaints &amp; Supervisory Authority</h2>
-<p>If you believe we have violated your privacy rights, you may lodge a complaint with the UK Information Commissioner’s Office (ICO):</p>
-<p>Website: ico.org.uk</p>
-<p>Phone: 0303 123 1113</p>
-<p>© 2026 FreshDate Ltd. All rights reserved.</p>
-<p>Last updated: 6 May 2026</p>
+  <div class="info-card">
+    <p><strong>Summary:</strong> FreshDate is a privacy-first app. Your food data stays on your device. We do not sell your data, we do not use it for advertising, and we do not share it with third parties except where strictly necessary to operate the service.</p>
+  </div>
 
+  <h2>1. Introduction</h2>
+  <p>FreshDate Ltd ("we", "us", "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application ("App").</p>
+  <p>Please read this policy carefully. By using the App, you consent to our data practices as described herein. If you do not agree, do not use the App.</p>
+  <p><strong>Jurisdiction:</strong> FreshDate is operated in the United Kingdom and complies with the Data Protection Act 2018 and the UK General Data Protection Regulation (UK GDPR).</p>
 
-<div class="divider"></div>
-<p class="footer">FreshDate &copy; 2026. All rights reserved.</p>
+  <h2>2. Data Controller &amp; Contact Information</h2>
+  <ul>
+    <li><strong>Company:</strong> FreshDate Ltd</li>
+    <li><strong>Registered in:</strong> England &amp; Wales</li>
+    <li><strong>Email:</strong> <a href="mailto:info@freshdate.co.uk">info@freshdate.co.uk</a></li>
+    <li><strong>Data Protection Officer:</strong> <a href="mailto:info@freshdate.co.uk">info@freshdate.co.uk</a></li>
+    <li><strong>Website:</strong> <a href="https://freshdate.co.uk">https://freshdate.co.uk</a></li>
+  </ul>
+  <p>For any privacy-related enquiries, contact us at the email address above. We will respond within 30 days as required by UK GDPR.</p>
+
+  <h2>3. Information We Collect</h2>
+  <h3>3.1 Information You Provide Directly</h3>
+  <ul>
+    <li><strong>Account information:</strong> Email address and password when you create an account.</li>
+    <li><strong>Profile information:</strong> Name, family member names, ages, dietary preferences, and restrictions.</li>
+    <li><strong>Food inventory data:</strong> Product names, expiry dates, categories, quantities, and storage locations you enter or scan.</li>
+    <li><strong>Meal plans and shopping lists:</strong> Meal plans you create and shopping list items you add.</li>
+  </ul>
+  <h3>3.2 Information Collected Automatically</h3>
+  <ul>
+    <li><strong>Device information:</strong> Device type, operating system version, app version.</li>
+    <li><strong>Usage data:</strong> Features used, session duration, crash reports, and error logs.</li>
+    <li><strong>Push notification token:</strong> Required to deliver expiry reminders to your device.</li>
+  </ul>
+  <h3>3.3 Camera &amp; Image Data</h3>
+  <p>When you use the AI scanner, your camera feed is processed on-device or sent to our secure server for OCR processing. Images are not stored permanently — they are processed and immediately discarded. We do not retain photographs of your food labels.</p>
+
+  <h2>4. How We Use Your Information</h2>
+  <table>
+    <thead>
+      <tr><th>Purpose</th><th>Legal Basis (UK GDPR)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Providing and operating the App</td><td>Contract performance</td></tr>
+      <tr><td>Sending expiry notifications</td><td>Contract performance / Legitimate interest</td></tr>
+      <tr><td>Generating AI meal plans</td><td>Contract performance</td></tr>
+      <tr><td>Processing subscription payments</td><td>Contract performance</td></tr>
+      <tr><td>Improving app performance and fixing bugs</td><td>Legitimate interest</td></tr>
+      <tr><td>Complying with legal obligations</td><td>Legal obligation</td></tr>
+      <tr><td>Sending marketing emails (opt-in only)</td><td>Consent</td></tr>
+    </tbody>
+  </table>
+
+  <h2>5. Data Storage &amp; Security</h2>
+  <p>Your food inventory, meal plans, and family profiles are stored locally on your device using AsyncStorage and, where you have an account, synced to our secure database hosted on Supabase (EU region). All data in transit is encrypted using TLS 1.3. Data at rest is encrypted using AES-256.</p>
+  <p>Auth tokens are stored in the iOS Keychain and Android Keystore — the most secure storage available on each platform. We do not store passwords in plain text.</p>
+
+  <h2>6. Third-Party Services</h2>
+  <table>
+    <thead>
+      <tr><th>Service</th><th>Purpose</th><th>Privacy Policy</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Supabase</td><td>Database &amp; authentication</td><td><a href="https://supabase.com/privacy">supabase.com/privacy</a></td></tr>
+      <tr><td>RevenueCat</td><td>Subscription management</td><td><a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></td></tr>
+      <tr><td>TheMealDB</td><td>Recipe data (ingredient names only, no personal data)</td><td><a href="https://www.themealdb.com">themealdb.com</a></td></tr>
+      <tr><td>Apple / Google</td><td>App distribution &amp; in-app purchases</td><td>See respective platform policies</td></tr>
+    </tbody>
+  </table>
+  <p>We do not sell your data to any third party. We do not use your data for advertising.</p>
+
+  <h2>7. Data Retention</h2>
+  <p>We retain your data for as long as your account is active. If you delete your account, all personal data is permanently deleted from our servers within 30 days. Local data on your device is removed when you uninstall the App.</p>
+
+  <h2>8. Your Rights Under UK GDPR</h2>
+  <p>You have the following rights regarding your personal data:</p>
+  <ul>
+    <li><strong>Right of access</strong> — request a copy of the data we hold about you.</li>
+    <li><strong>Right to rectification</strong> — request correction of inaccurate data.</li>
+    <li><strong>Right to erasure</strong> — request deletion of your data ("right to be forgotten").</li>
+    <li><strong>Right to restrict processing</strong> — request that we limit how we use your data.</li>
+    <li><strong>Right to data portability</strong> — request your data in a machine-readable format.</li>
+    <li><strong>Right to object</strong> — object to processing based on legitimate interest.</li>
+    <li><strong>Right to withdraw consent</strong> — withdraw consent for marketing at any time.</li>
+  </ul>
+  <p>To exercise any of these rights, email <a href="mailto:info@freshdate.co.uk">info@freshdate.co.uk</a>. We will respond within 30 days.</p>
+
+  <h2>9. Children's Privacy</h2>
+  <p>The App is not directed at children under 13. We do not knowingly collect personal data from children under 13. Family member profiles (for children) store only name, age, and dietary preferences — no contact information. If you believe we have inadvertently collected data from a child under 13, contact us immediately at <a href="mailto:info@freshdate.co.uk">info@freshdate.co.uk</a>.</p>
+
+  <h2>10. Push Notifications</h2>
+  <p>FreshDate sends push notifications to remind you of expiring food. You can disable notifications at any time in your device settings or within the App under Settings &rarr; Notifications. Disabling notifications does not affect your ability to use the App.</p>
+
+  <h2>11. App Store Privacy Label</h2>
+  <p>As disclosed on the App Store and Google Play:</p>
+  <h3>Data Not Linked to You</h3>
+  <p>The following data may be collected but is not linked to your identity: Financial Info (subscription status), Identifiers (anonymous device ID), Usage Data, Diagnostics.</p>
+  <h3>Data Not Used to Track You</h3>
+  <p>FreshDate does not use any data for cross-app or cross-site tracking. We do not use any data for third-party advertising.</p>
+
+  <h2>12. Cookies &amp; Similar Technologies</h2>
+  <p>The App does not use cookies. The website (freshdate.co.uk) uses only essential cookies required for basic functionality. No analytics or advertising cookies are used.</p>
+
+  <h2>13. Marketing Communications</h2>
+  <p>We may send you transactional emails (account confirmations, password resets, subscription updates) — these are required for the operation of the service. Marketing emails are opt-in only and you can unsubscribe at any time via the link in any email or by contacting <a href="mailto:info@freshdate.co.uk">info@freshdate.co.uk</a>.</p>
+
+  <h2>14. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. Changes will be posted at <a href="https://freshdate.co.uk/privacy">freshdate.co.uk/privacy</a> with an updated "Last Updated" date. For material changes, we will notify you by email or in-app prompt. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
+
+  <h2>15. Complaints</h2>
+  <p>If you believe we have violated your privacy rights, you may lodge a complaint with the UK Information Commissioner's Office (ICO):</p>
+  <ul>
+    <li><strong>Website:</strong> <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a></li>
+    <li><strong>Phone:</strong> 0303 123 1113</li>
+  </ul>
+  <p>We would always prefer to resolve any concerns directly — please contact us first at <a href="mailto:info@freshdate.co.uk">info@freshdate.co.uk</a>.</p>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">
+      <img src="icon.png" alt="FreshDate">
+      <span class="footer-logo-text">FreshDate</span>
+    </a>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Use</a>
+      <a href="mailto:info@freshdate.co.uk">Contact</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 FreshDate Ltd. All rights reserved. Registered in England &amp; Wales.</p>
+  </div>
+</footer>
 
 </body>
 </html>
