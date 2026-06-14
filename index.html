@@ -3,1133 +3,669 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FreshDate — Stop Wasting Food. Start Saving Money.</title>
-  <meta name="description" content="FreshDate uses AI to scan food labels, track expiry dates, plan meals for your family, and build smart shopping lists. Available on iOS and Android.">
-  <meta property="og:title" content="FreshDate — Stop Wasting Food. Start Saving Money.">
-  <meta property="og:description" content="AI-powered food expiry tracking for families. Scan, track, plan, and save.">
+  <title>FreshDate — Know what's fresh. Waste nothing.</title>
+  <meta name="description" content="FreshDate uses AI to scan food labels, track expiry dates, and plan meals around what you already have. Available on iOS and Android.">
+  <meta property="og:title" content="FreshDate — Know what's fresh. Waste nothing.">
+  <meta property="og:description" content="AI-powered food expiry tracking for families who want to stop wasting food and start saving money.">
   <meta property="og:url" content="https://freshdate.co.uk">
-  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green-50:  #f0fdf4;
-      --green-100: #dcfce7;
-      --green-200: #bbf7d0;
-      --green-500: #22c55e;
-      --green-600: #16a34a;
-      --green-700: #15803d;
-      --green-800: #166534;
-      --green-900: #14532d;
-      --slate-50:  #f8fafc;
-      --slate-100: #f1f5f9;
-      --slate-200: #e2e8f0;
-      --slate-300: #cbd5e1;
-      --slate-400: #94a3b8;
-      --slate-500: #64748b;
-      --slate-600: #475569;
-      --slate-700: #334155;
-      --slate-800: #1e293b;
-      --slate-900: #0f172a;
-      --white: #ffffff;
-      --amber-400: #fbbf24;
-      --amber-500: #f59e0b;
-      --red-400: #f87171;
-      --red-500: #ef4444;
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #171717;
+      --text-secondary: #525252;
+      --text-tertiary: #737373;
+      --border: #e5e5e5;
+      --border-subtle: #f0f0f0;
+      --accent: #16a34a;
+      --accent-subtle: #f0fdf4;
+      --accent-text: #15803d;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--white);
-      color: var(--slate-800);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+      letter-spacing: -0.011em;
     }
 
-    /* ─── NAV ─────────────────────────────────────────────────────── */
-    nav {
+    /* NAV */
+    header {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--slate-200);
+      z-index: 50;
+      background: rgba(250, 250, 250, 0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
     }
-    .nav-inner {
-      max-width: 1120px;
+    .header-inner {
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 0 24px;
-      height: 64px;
+      padding: 0 32px;
+      height: 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .nav-logo {
+    .logo {
       display: flex;
       align-items: center;
       gap: 10px;
       text-decoration: none;
+      color: var(--text);
     }
-    .nav-logo img {
-      width: 36px;
-      height: 36px;
-      border-radius: 9px;
-    }
-    .nav-logo-text {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--slate-900);
-      letter-spacing: -0.3px;
-    }
-    .nav-links {
+    .logo img { width: 28px; height: 28px; border-radius: 7px; }
+    .logo span { font-size: 15px; font-weight: 600; letter-spacing: -0.02em; }
+    .header-nav {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 28px;
       list-style: none;
     }
-    .nav-links a {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--slate-600);
+    .header-nav a {
+      font-size: 13px;
+      font-weight: 450;
+      color: var(--text-secondary);
       text-decoration: none;
       transition: color 0.15s;
     }
-    .nav-links a:hover { color: var(--green-700); }
-    .nav-cta {
-      background: var(--green-600);
-      color: var(--white) !important;
-      padding: 8px 18px;
-      border-radius: 8px;
-      font-weight: 600 !important;
-      transition: background 0.15s !important;
+    .header-nav a:hover { color: var(--text); }
+    .header-cta {
+      font-size: 13px;
+      font-weight: 550;
+      color: var(--surface) !important;
+      background: var(--text);
+      padding: 6px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity 0.15s;
     }
-    .nav-cta:hover { background: var(--green-700) !important; color: var(--white) !important; }
+    .header-cta:hover { opacity: 0.85; }
 
-    /* ─── HERO ────────────────────────────────────────────────────── */
+    /* HERO */
     .hero {
-      background: linear-gradient(160deg, var(--green-50) 0%, var(--white) 60%);
-      padding: 96px 24px 80px;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 120px 32px 100px;
       text-align: center;
-      overflow: hidden;
-      position: relative;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -120px;
-      right: -120px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(34,197,94,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-eyebrow {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--green-100);
-      color: var(--green-800);
-      font-size: 13px;
-      font-weight: 600;
-      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent-text);
+      background: var(--accent-subtle);
+      border: 1px solid #bbf7d0;
+      padding: 4px 12px;
       border-radius: 100px;
-      margin-bottom: 28px;
-      letter-spacing: 0.3px;
+      margin-bottom: 32px;
+      letter-spacing: 0.01em;
     }
-    .hero-eyebrow-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--green-500);
+    .hero-badge::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
       border-radius: 50%;
     }
     .hero h1 {
-      font-size: clamp(40px, 6vw, 68px);
-      font-weight: 900;
-      line-height: 1.08;
-      letter-spacing: -2px;
-      color: var(--slate-900);
-      max-width: 820px;
-      margin: 0 auto 24px;
+      font-size: clamp(42px, 5.5vw, 64px);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      color: var(--text);
+      max-width: 700px;
+      margin: 0 auto 20px;
     }
-    .hero h1 span {
-      color: var(--green-600);
-    }
-    .hero-sub {
-      font-size: clamp(17px, 2vw, 20px);
-      color: var(--slate-500);
-      max-width: 560px;
-      margin: 0 auto 44px;
+    .hero-description {
+      font-size: clamp(17px, 1.8vw, 19px);
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
       font-weight: 400;
-      line-height: 1.65;
     }
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 64px;
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--green-600);
-      color: var(--white);
-      font-size: 16px;
-      font-weight: 600;
-      padding: 14px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: background 0.15s, transform 0.1s;
-      box-shadow: 0 4px 14px rgba(22,163,74,0.35);
-    }
-    .btn-primary:hover { background: var(--green-700); transform: translateY(-1px); }
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--white);
-      color: var(--slate-700);
-      font-size: 16px;
-      font-weight: 600;
-      padding: 14px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      border: 1.5px solid var(--slate-200);
-      transition: border-color 0.15s, transform 0.1s;
-    }
-    .btn-secondary:hover { border-color: var(--green-400); transform: translateY(-1px); }
-    .store-badges {
+    .hero-buttons {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
     }
-    .store-badges a img {
-      height: 44px;
+    .btn-dark {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--text);
+      color: var(--surface);
+      font-size: 14px;
+      font-weight: 550;
+      padding: 12px 22px;
       border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+      letter-spacing: -0.01em;
     }
+    .btn-dark:hover { opacity: 0.85; }
+    .btn-dark svg { width: 16px; height: 16px; }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 550;
+      padding: 12px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: border-color 0.15s, box-shadow 0.15s;
+      letter-spacing: -0.01em;
+    }
+    .btn-outline:hover { border-color: #d4d4d4; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
 
-    /* ─── STAT BAR ────────────────────────────────────────────────── */
-    .stat-bar {
-      background: var(--slate-900);
-      padding: 32px 24px;
-    }
-    .stat-bar-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 32px;
-      text-align: center;
-    }
-    .stat-item-number {
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--green-400);
-      letter-spacing: -1px;
-      line-height: 1;
-    }
-    .stat-item-label {
-      font-size: 13px;
-      color: var(--slate-400);
-      margin-top: 6px;
-      font-weight: 500;
-    }
+    /* DIVIDER */
+    .divider { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+    .divider-line { height: 1px; background: var(--border); }
 
-    /* ─── SECTIONS ────────────────────────────────────────────────── */
-    section {
-      padding: 96px 24px;
-    }
-    .section-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-    .section-label {
+    /* SECTIONS */
+    section { max-width: 1080px; margin: 0 auto; padding: 100px 32px; }
+    .section-header { margin-bottom: 64px; }
+    .section-header.centered { text-align: center; }
+    .section-eyebrow {
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--green-600);
+      color: var(--accent);
       margin-bottom: 12px;
     }
     .section-title {
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 800;
-      letter-spacing: -1px;
-      color: var(--slate-900);
+      font-size: clamp(28px, 3.5vw, 38px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
       line-height: 1.15;
-      margin-bottom: 16px;
+      color: var(--text);
+      margin-bottom: 12px;
     }
-    .section-sub {
-      font-size: 18px;
-      color: var(--slate-500);
-      max-width: 560px;
-      line-height: 1.65;
+    .section-description {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 480px;
+      line-height: 1.6;
     }
+    .section-header.centered .section-description { margin: 0 auto; }
 
-    /* ─── FEATURES GRID ───────────────────────────────────────────── */
+    /* FEATURES */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      margin-top: 56px;
-    }
-    .feature-card {
-      background: var(--white);
-      border: 1px solid var(--slate-200);
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 32px;
-      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+      overflow: hidden;
     }
-    .feature-card:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-      border-color: var(--green-200);
-      transform: translateY(-2px);
+    .feature-cell {
+      background: var(--surface);
+      padding: 36px 32px;
+    }
+    .feature-cell h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .feature-cell p {
+      font-size: 14px;
+      color: var(--text-tertiary);
+      line-height: 1.6;
     }
     .feature-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--green-50);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .feature-icon svg {
-      width: 24px;
-      height: 24px;
-      color: var(--green-600);
-    }
-    .feature-card h3 {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--slate-900);
-      margin-bottom: 10px;
-      letter-spacing: -0.2px;
-    }
-    .feature-card p {
-      font-size: 14px;
-      color: var(--slate-500);
-      line-height: 1.65;
+      width: 32px;
+      height: 32px;
+      margin-bottom: 16px;
+      color: var(--accent);
     }
 
-    /* ─── HOW IT WORKS ────────────────────────────────────────────── */
-    .how-bg {
-      background: var(--slate-50);
-    }
-    .steps {
+    /* STEPS */
+    .steps-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 40px;
-      margin-top: 56px;
-    }
-    .step {
-      text-align: center;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
     }
     .step-number {
-      width: 52px;
-      height: 52px;
-      background: var(--green-600);
-      color: var(--white);
-      font-size: 20px;
+      font-size: 48px;
       font-weight: 800;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
+      color: var(--border);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 16px;
     }
-    .step h3 {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--slate-900);
-      margin-bottom: 10px;
+    .step-item h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
     }
-    .step p {
+    .step-item p {
       font-size: 14px;
-      color: var(--slate-500);
-      line-height: 1.65;
+      color: var(--text-tertiary);
+      line-height: 1.6;
     }
 
-    /* ─── URGENCY COLOURS ─────────────────────────────────────────── */
-    .urgency-section {
-      background: var(--white);
-    }
-    .urgency-grid {
+    /* URGENCY */
+    .urgency-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      margin-top: 48px;
     }
-    .urgency-card {
-      border-radius: 14px;
+    .urgency-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
       padding: 24px;
       text-align: center;
     }
-    .urgency-card.red    { background: #fff5f5; border: 1.5px solid #fecaca; }
-    .urgency-card.amber  { background: #fffbeb; border: 1.5px solid #fde68a; }
-    .urgency-card.yellow { background: #fefce8; border: 1.5px solid #fef08a; }
-    .urgency-card.green  { background: var(--green-50); border: 1.5px solid var(--green-200); }
     .urgency-dot {
-      width: 14px;
-      height: 14px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      margin: 0 auto 12px;
+      margin: 0 auto 14px;
     }
-    .urgency-card.red .urgency-dot    { background: #ef4444; }
-    .urgency-card.amber .urgency-dot  { background: #f59e0b; }
-    .urgency-card.yellow .urgency-dot { background: #eab308; }
-    .urgency-card.green .urgency-dot  { background: var(--green-500); }
-    .urgency-card h4 {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .urgency-card.red h4    { color: #991b1b; }
-    .urgency-card.amber h4  { color: #92400e; }
-    .urgency-card.yellow h4 { color: #713f12; }
-    .urgency-card.green h4  { color: var(--green-800); }
-    .urgency-card p {
-      font-size: 13px;
-      color: var(--slate-500);
-    }
+    .urgency-dot.red { background: #dc2626; }
+    .urgency-dot.amber { background: #d97706; }
+    .urgency-dot.yellow { background: #ca8a04; }
+    .urgency-dot.green { background: #16a34a; }
+    .urgency-item h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .urgency-item p { font-size: 13px; color: var(--text-tertiary); }
 
-    /* ─── PRICING ─────────────────────────────────────────────────── */
-    .pricing-bg {
-      background: linear-gradient(180deg, var(--white) 0%, var(--green-50) 100%);
+    /* TESTIMONIAL */
+    .testimonial-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 32px;
     }
+    .testimonial-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+    .testimonial-stars { font-size: 18px; color: #f59e0b; letter-spacing: 3px; margin-bottom: 24px; }
+    .testimonial-quote {
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: 450;
+      color: var(--text);
+      line-height: 1.55;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .testimonial-author { font-size: 13px; color: var(--text-tertiary); }
+
+    /* PRICING */
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 56px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 720px;
+      margin: 0 auto;
     }
     .pricing-card {
-      background: var(--white);
-      border: 1.5px solid var(--slate-200);
-      border-radius: 20px;
-      padding: 36px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 36px 32px;
       position: relative;
     }
-    .pricing-card.featured {
-      border-color: var(--green-500);
-      box-shadow: 0 0 0 4px rgba(34,197,94,0.1);
+    .pricing-card.highlighted {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
     }
-    .pricing-badge {
+    .pricing-label {
       position: absolute;
-      top: -14px;
+      top: -11px;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--green-600);
-      color: var(--white);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 4px 16px;
+      background: var(--accent);
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 12px;
       border-radius: 100px;
+      letter-spacing: 0.02em;
       white-space: nowrap;
-      letter-spacing: 0.5px;
     }
     .pricing-tier {
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--slate-400);
+      letter-spacing: 0.05em;
+      color: var(--text-tertiary);
       margin-bottom: 8px;
     }
-    .pricing-card.featured .pricing-tier { color: var(--green-600); }
-    .pricing-price {
-      font-size: 44px;
-      font-weight: 900;
-      color: var(--slate-900);
-      letter-spacing: -2px;
+    .pricing-card.highlighted .pricing-tier { color: var(--accent); }
+    .pricing-amount {
+      font-size: 40px;
+      font-weight: 750;
+      color: var(--text);
+      letter-spacing: -0.03em;
       line-height: 1;
       margin-bottom: 4px;
     }
-    .pricing-price sup {
-      font-size: 22px;
-      font-weight: 700;
-      vertical-align: super;
-      letter-spacing: 0;
-    }
-    .pricing-cadence {
+    .pricing-amount span { font-size: 18px; font-weight: 500; color: var(--text-tertiary); }
+    .pricing-period { font-size: 13px; color: var(--text-tertiary); margin-bottom: 28px; }
+    .pricing-list { list-style: none; margin-bottom: 28px; }
+    .pricing-list li {
       font-size: 14px;
-      color: var(--slate-400);
-      margin-bottom: 28px;
-    }
-    .pricing-features {
-      list-style: none;
-      margin-bottom: 32px;
-    }
-    .pricing-features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 14px;
-      color: var(--slate-600);
-      padding: 7px 0;
-      border-bottom: 1px solid var(--slate-100);
-    }
-    .pricing-features li:last-child { border-bottom: none; }
-    .pricing-check {
-      width: 18px;
-      height: 18px;
-      background: var(--green-100);
-      border-radius: 50%;
+      color: var(--text-secondary);
+      padding: 6px 0;
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
+      gap: 8px;
     }
-    .pricing-check svg {
-      width: 10px;
-      height: 10px;
-      color: var(--green-700);
-    }
-    .pricing-x {
-      width: 18px;
-      height: 18px;
-      background: var(--slate-100);
+    .pricing-list li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       flex-shrink: 0;
-      margin-top: 1px;
     }
-    .pricing-x svg {
-      width: 10px;
-      height: 10px;
-      color: var(--slate-400);
+    .pricing-list li.disabled {
+      color: var(--text-tertiary);
+      text-decoration: line-through;
+      opacity: 0.6;
     }
+    .pricing-list li.disabled::before { background: var(--border); }
     .btn-pricing {
       display: block;
       text-align: center;
-      padding: 13px;
-      border-radius: 10px;
-      font-size: 15px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.15s;
-    }
-    .btn-pricing-free {
-      background: var(--slate-100);
-      color: var(--slate-700);
-    }
-    .btn-pricing-free:hover { background: var(--slate-200); }
-    .btn-pricing-premium {
-      background: var(--green-600);
-      color: var(--white);
-      box-shadow: 0 4px 12px rgba(22,163,74,0.3);
-    }
-    .btn-pricing-premium:hover { background: var(--green-700); }
-
-    /* ─── REVIEW ──────────────────────────────────────────────────── */
-    .review-section {
-      background: var(--slate-900);
-      padding: 80px 24px;
-    }
-    .review-inner {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .stars {
-      color: var(--amber-400);
-      font-size: 24px;
-      letter-spacing: 2px;
-      margin-bottom: 24px;
-    }
-    .review-quote {
-      font-size: clamp(20px, 3vw, 28px);
-      font-weight: 600;
-      color: var(--white);
-      line-height: 1.5;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-    .review-author {
-      font-size: 14px;
-      color: var(--slate-400);
-    }
-    .review-source {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 100px;
-      padding: 5px 14px;
-      font-size: 12px;
-      color: var(--slate-400);
-      margin-top: 20px;
-    }
-
-    /* ─── FREEZE FEATURE ──────────────────────────────────────────── */
-    .freeze-section {
-      background: var(--white);
-    }
-    .freeze-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-      margin-top: 56px;
-    }
-    @media (max-width: 768px) {
-      .freeze-grid { grid-template-columns: 1fr; gap: 40px; }
-    }
-    .freeze-list {
-      list-style: none;
-      margin-top: 28px;
-    }
-    .freeze-list li {
-      display: flex;
-      gap: 14px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--slate-100);
-    }
-    .freeze-list li:last-child { border-bottom: none; }
-    .freeze-list-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 18px;
-    }
-    .freeze-list li h4 {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--slate-900);
-      margin-bottom: 4px;
-    }
-    .freeze-list li p {
-      font-size: 13px;
-      color: var(--slate-500);
-      line-height: 1.55;
-    }
-    .freeze-visual {
-      background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
-      border-radius: 20px;
-      padding: 40px;
-      text-align: center;
-    }
-    .freeze-visual-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: #1e40af;
-      margin-bottom: 24px;
-    }
-    .freeze-item-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 12px;
-      border: 1.5px solid transparent;
-      text-align: left;
-    }
-    .freeze-item-card.frozen { border-color: #93c5fd; }
-    .freeze-item-card.defrosting { border-color: #fdba74; }
-    .freeze-item-card.fresh { border-color: var(--green-200); }
-    .freeze-item-emoji { font-size: 24px; }
-    .freeze-item-name { font-size: 14px; font-weight: 600; color: var(--slate-800); }
-    .freeze-item-date { font-size: 12px; color: var(--slate-400); margin-top: 2px; }
-    .freeze-item-badge {
-      margin-left: auto;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 100px;
-    }
-    .badge-frozen    { background: #dbeafe; color: #1d4ed8; }
-    .badge-defrost   { background: #ffedd5; color: #c2410c; }
-    .badge-fresh     { background: var(--green-100); color: var(--green-800); }
-
-    /* ─── CTA ─────────────────────────────────────────────────────── */
-    .cta-section {
-      background: var(--green-700);
-      padding: 96px 24px;
-      text-align: center;
-    }
-    .cta-section h2 {
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 900;
-      color: var(--white);
-      letter-spacing: -1.5px;
-      margin-bottom: 16px;
-    }
-    .cta-section p {
-      font-size: 18px;
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 40px;
-    }
-    .cta-badges {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .cta-badges a img {
-      height: 48px;
+      padding: 11px;
       border-radius: 8px;
+      font-size: 14px;
+      font-weight: 550;
+      text-decoration: none;
+      transition: opacity 0.15s;
+      letter-spacing: -0.01em;
     }
+    .btn-pricing.dark { background: var(--text); color: var(--surface); }
+    .btn-pricing.dark:hover { opacity: 0.85; }
+    .btn-pricing.light { background: var(--bg); color: var(--text); border: 1px solid var(--border); }
+    .btn-pricing.light:hover { border-color: #d4d4d4; }
 
-    /* ─── FOOTER ──────────────────────────────────────────────────── */
-    footer {
-      background: var(--slate-900);
-      padding: 48px 24px;
+    /* CTA */
+    .cta-section { text-align: center; padding-bottom: 120px; }
+    .cta-section h2 {
+      font-size: clamp(28px, 3.5vw, 38px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 12px;
     }
+    .cta-section p { font-size: 16px; color: var(--text-secondary); margin-bottom: 36px; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 40px 32px; }
     .footer-inner {
-      max-width: 1120px;
+      max-width: 1080px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 24px;
+      gap: 16px;
     }
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-    .footer-logo img {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-    }
-    .footer-logo-text {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--white);
-    }
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .footer-links a {
-      font-size: 14px;
-      color: var(--slate-400);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-    .footer-links a:hover { color: var(--white); }
-    .footer-copy {
-      font-size: 13px;
-      color: var(--slate-500);
-      width: 100%;
-      text-align: center;
-      margin-top: 8px;
-    }
+    .footer-left { display: flex; align-items: center; gap: 10px; }
+    .footer-left img { width: 22px; height: 22px; border-radius: 5px; }
+    .footer-left span { font-size: 13px; color: var(--text-tertiary); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 13px; color: var(--text-tertiary); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--text); }
 
-    /* ─── RESPONSIVE ──────────────────────────────────────────────── */
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .hero { padding: 64px 20px 56px; }
-      section { padding: 64px 20px; }
-      .stat-bar-inner { grid-template-columns: repeat(2, 1fr); }
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .header-nav { display: none; }
+      .hero { padding: 80px 24px 64px; }
+      section { padding: 64px 24px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .urgency-row { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .testimonial-section { padding: 56px 24px; }
+    }
+    @media (max-width: 480px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .urgency-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
       <img src="icon.png" alt="FreshDate">
-      <span class="nav-logo-text">FreshDate</span>
+      <span>FreshDate</span>
     </a>
-    <ul class="nav-links">
-      <li><a href="#features">Features</a></li>
-      <li><a href="#how-it-works">How it works</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="mailto:info@freshdate.co.uk">Contact</a></li>
-      <li><a href="https://apps.apple.com/us/app/freshdate/id6761342011" class="nav-cta">Download Free</a></li>
-    </ul>
+    <nav>
+      <ul class="header-nav">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="mailto:info@freshdate.co.uk">Contact</a></li>
+        <li><a href="https://apps.apple.com/us/app/freshdate/id6761342011" class="header-cta">Download</a></li>
+      </ul>
+    </nav>
   </div>
-</nav>
+</header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-eyebrow">
-    <span class="hero-eyebrow-dot"></span>
-    Live on App Store &amp; Google Play
-  </div>
-  <h1>Stop wasting food.<br><span>Start saving money.</span></h1>
-  <p class="hero-sub">FreshDate uses AI to scan food labels, track expiry dates, plan meals around what you already have, and alert you before anything goes to waste.</p>
-  <div class="hero-actions">
-    <a href="https://apps.apple.com/us/app/freshdate/id6761342011" class="btn-primary">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      Download on iOS
+<div class="hero">
+  <div class="hero-badge">Available on iOS and Android</div>
+  <h1>Know what's fresh.<br>Waste nothing.</h1>
+  <p class="hero-description">FreshDate scans your food labels with AI, tracks every expiry date, and plans meals around what you already have — so nothing gets forgotten and nothing goes to waste.</p>
+  <div class="hero-buttons">
+    <a href="https://apps.apple.com/us/app/freshdate/id6761342011" class="btn-dark">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      App Store
     </a>
-    <a href="#" class="btn-secondary">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.24.99.19l12.6-12.6-2.83-2.83L3.18 23.76zm16.53-11.49L17.3 10.8l-2.83 2.83 2.41 2.41c.39.39 1.02.39 1.41 0l1.42-1.42c.39-.39.39-1.02 0-1.35zM3.54.25C3.2.06 2.8.01 2.43.19L14.47 12.2l2.83-2.83L3.54.25zm.46 3.03L15.3 14.58l-2.83 2.83L3.18 6.1 4 3.28z"/></svg>
-      Get it on Android
-    </a>
-  </div>
-  <div class="store-badges">
-    <a href="https://apps.apple.com/us/app/freshdate/id6761342011">
-      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
-    </a>
-  </div>
-</section>
-
-<!-- STAT BAR -->
-<div class="stat-bar">
-  <div class="stat-bar-inner">
-    <div>
-      <div class="stat-item-number">5.0★</div>
-      <div class="stat-item-label">App Store rating</div>
-    </div>
-    <div>
-      <div class="stat-item-number">£730</div>
-      <div class="stat-item-label">Average annual food waste per UK household</div>
-    </div>
-    <div>
-      <div class="stat-item-number">30%</div>
-      <div class="stat-item-label">Of food bought in the UK is thrown away</div>
-    </div>
-    <div>
-      <div class="stat-item-number">Free</div>
-      <div class="stat-item-label">To download, always</div>
-    </div>
+    <a href="#features" class="btn-outline">Learn more</a>
   </div>
 </div>
 
-<!-- FEATURES -->
+<div class="divider"><div class="divider-line"></div></div>
+
 <section id="features">
-  <div class="section-inner">
-    <p class="section-label">What FreshDate does</p>
-    <h2 class="section-title">Everything your household needs<br>to stop wasting food</h2>
-    <p class="section-sub">Six core features, built to work together — from the moment you unpack your shopping to the moment you sit down to eat.</p>
+  <div class="section-header">
+    <p class="section-eyebrow">Features</p>
+    <h2 class="section-title">Built for families who<br>buy food every week</h2>
+    <p class="section-description">Six tools that work together — from the moment you unpack your shopping to the moment you sit down to eat.</p>
+  </div>
 
-    <div class="features-grid">
-
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        </div>
-        <h3>AI Camera Scanner</h3>
-        <p>Point your camera at any food label — including faded dot-matrix stamps on milk cartons and foil packaging. FreshDate reads the expiry date automatically and adds the item to your tracker in seconds.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
-        <h3>Expiry Calendar</h3>
-        <p>See your entire fridge and freezer on a monthly calendar. Colour-coded dots show what needs using first. Tap any date to see exactly what expires and get instant cooking suggestions.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-        </div>
-        <h3>AI Meal Planning</h3>
-        <p>Generate a full week of recipes built around the food you already have — prioritising items that expire soonest. Every recipe includes step-by-step instructions and per-serving nutrition.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3>Family Profiles</h3>
-        <p>Add every member of your household with their age, dietary preferences, and restrictions. FreshDate tailors meal suggestions and calorie targets to each person — from toddlers to teenagers.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        </div>
-        <h3>Smart Shopping List</h3>
-        <p>Build your shopping list in seconds. Add ingredients directly from any recipe with one tap. Estimated expiry dates are pre-filled for every item so your next shop is already tracked before you get home.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/></svg>
-        </div>
-        <h3>Smart Notifications</h3>
-        <p>Receive timely alerts 3 days before, 1 day before, and on the day food expires. Notifications suggest freezing items that are still safe to freeze — and never suggest it for eggs, cream, or salad.</p>
-      </div>
-
+  <div class="features-grid">
+    <div class="feature-cell">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      <h3>AI Camera Scanner</h3>
+      <p>Point your camera at any food label. FreshDate reads the expiry date — even faded dot-matrix stamps on milk cartons — and adds the item to your tracker in seconds.</p>
+    </div>
+    <div class="feature-cell">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <h3>Expiry Calendar</h3>
+      <p>See your entire fridge and freezer on a monthly calendar. Colour-coded dots show what needs using first. Tap any date to see what expires.</p>
+    </div>
+    <div class="feature-cell">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+      <h3>AI Meal Planning</h3>
+      <p>Generate a full week of recipes built around the food you already have — prioritising items that expire soonest. Every recipe includes step-by-step instructions and nutrition data.</p>
+    </div>
+    <div class="feature-cell">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/></svg>
+      <h3>Smart Notifications</h3>
+      <p>Alerts fire 3 days before, 1 day before, and on the day food expires. FreshDate suggests freezing items that are still safe — and never suggests it for eggs, cream, or salad.</p>
+    </div>
+    <div class="feature-cell">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <h3>Family Profiles</h3>
+      <p>Add every member of your household with their dietary preferences and restrictions. FreshDate tailors meal suggestions and calorie targets to each person.</p>
+    </div>
+    <div class="feature-cell">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <h3>Smart Shopping List</h3>
+      <p>Build your list in seconds. Add ingredients from any recipe with one tap. Estimated expiry dates are pre-filled so your next shop is already tracked before you get home.</p>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section id="how-it-works" class="how-bg">
-  <div class="section-inner">
-    <p class="section-label">How it works</p>
-    <h2 class="section-title">From scan to saved — in under 10 seconds</h2>
-    <p class="section-sub">No barcodes. No manual typing. Just point, confirm, and FreshDate handles the rest.</p>
+<div class="divider"><div class="divider-line"></div></div>
 
-    <div class="steps">
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>Scan the label</h3>
-        <p>Open the camera and point it at any food label. FreshDate's AI reads the expiry date — even faded ink-jet stamps on milk cartons and foil packaging.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>Confirm and save</h3>
-        <p>Review the detected date, product name, and category. Make any edits, then tap Save. The item is added to your tracker instantly.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">3</div>
-        <h3>Get notified</h3>
-        <p>FreshDate schedules reminders automatically — 3 days, 1 day, and on the day. You'll never forget what's in your fridge again.</p>
-      </div>
-      <div class="step">
-        <div class="step-number">4</div>
-        <h3>Plan your meals</h3>
-        <p>Let AI generate a week of recipes from the food you already have. Use everything. Waste nothing.</p>
-      </div>
+<section id="how-it-works">
+  <div class="section-header">
+    <p class="section-eyebrow">How it works</p>
+    <h2 class="section-title">Scan to saved in under 10 seconds</h2>
+    <p class="section-description">No barcodes. No manual typing. Point, confirm, done.</p>
+  </div>
+
+  <div class="steps-grid">
+    <div class="step-item">
+      <div class="step-number">01</div>
+      <h3>Scan the label</h3>
+      <p>Open the camera and point it at any food label. The AI reads the expiry date instantly — even faded ink-jet stamps.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number">02</div>
+      <h3>Confirm &amp; save</h3>
+      <p>Review the detected date, product name, and category. Make any edits, then tap Save.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number">03</div>
+      <h3>Get notified</h3>
+      <p>FreshDate schedules reminders automatically. You'll never forget what's in your fridge again.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number">04</div>
+      <h3>Plan meals</h3>
+      <p>Let AI generate a week of recipes from the food you already have. Use everything. Waste nothing.</p>
     </div>
   </div>
 </section>
 
-<!-- URGENCY COLOURS -->
-<section class="urgency-section">
-  <div class="section-inner">
-    <p class="section-label">Colour-coded urgency</p>
-    <h2 class="section-title">Know exactly what needs eating first</h2>
-    <p class="section-sub">Every item in your tracker is colour-coded so you can see at a glance what's urgent and what's fine.</p>
+<div class="divider"><div class="divider-line"></div></div>
 
-    <div class="urgency-grid">
-      <div class="urgency-card red">
-        <div class="urgency-dot"></div>
-        <h4>Expired or today</h4>
-        <p>Use immediately or discard safely</p>
-      </div>
-      <div class="urgency-card amber">
-        <div class="urgency-dot"></div>
-        <h4>1–3 days</h4>
-        <p>Plan a meal around this today</p>
-      </div>
-      <div class="urgency-card yellow">
-        <div class="urgency-dot"></div>
-        <h4>4–7 days</h4>
-        <p>On the radar — plan for later this week</p>
-      </div>
-      <div class="urgency-card green">
-        <div class="urgency-dot"></div>
-        <h4>7+ days</h4>
-        <p>Fresh — no action needed yet</p>
-      </div>
+<section>
+  <div class="section-header centered">
+    <p class="section-eyebrow">At a glance</p>
+    <h2 class="section-title">Colour-coded so you know<br>what to eat first</h2>
+  </div>
+
+  <div class="urgency-row">
+    <div class="urgency-item">
+      <div class="urgency-dot red"></div>
+      <h4>Expired / today</h4>
+      <p>Use immediately or discard</p>
+    </div>
+    <div class="urgency-item">
+      <div class="urgency-dot amber"></div>
+      <h4>1–3 days</h4>
+      <p>Plan a meal around this today</p>
+    </div>
+    <div class="urgency-item">
+      <div class="urgency-dot yellow"></div>
+      <h4>4–7 days</h4>
+      <p>On the radar for this week</p>
+    </div>
+    <div class="urgency-item">
+      <div class="urgency-dot green"></div>
+      <h4>7+ days</h4>
+      <p>Fresh — no action needed</p>
     </div>
   </div>
 </section>
 
-<!-- FREEZE FEATURE -->
-<section class="freeze-section">
-  <div class="section-inner">
-    <div class="freeze-grid">
-      <div>
-        <p class="section-label">Freezer management</p>
-        <h2 class="section-title">Freeze smarter.<br>Defrost safely.</h2>
-        <p class="section-sub">FreshDate knows exactly how long every food type can stay frozen — and tells you the safe window to eat it after defrosting.</p>
-
-        <ul class="freeze-list">
-          <li>
-            <div class="freeze-list-icon" style="background:#dbeafe;">❄️</div>
-            <div>
-              <h4>Swipe to freeze</h4>
-              <p>Swipe left on any item and tap Freeze. FreshDate automatically calculates the frozen shelf life — chicken gets 3 months, butter 9 months, bread 3 months.</p>
-            </div>
-          </li>
-          <li>
-            <div class="freeze-list-icon" style="background:#ffedd5;">🌡️</div>
-            <div>
-              <h4>Safe defrost windows</h4>
-              <p>When you defrost, FreshDate sets a safe eating deadline based on UK Food Standards Agency guidelines. Raw poultry: 24 hours. Red meat: 48 hours. Butter: 7 days.</p>
-            </div>
-          </li>
-          <li>
-            <div class="freeze-list-icon" style="background:#fef9c3;">⚠️</div>
-            <div>
-              <h4>Max-freeze warnings</h4>
-              <p>A notification fires 7 days before a frozen item reaches its maximum safe storage time — so nothing gets forgotten at the back of the freezer.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="freeze-visual">
-        <div class="freeze-visual-title">Your Freezer</div>
-        <div class="freeze-item-card frozen">
-          <div class="freeze-item-emoji">🍗</div>
-          <div>
-            <div class="freeze-item-name">Chicken Breast</div>
-            <div class="freeze-item-date">Frozen use by: 14 Sep 2026</div>
-          </div>
-          <span class="freeze-item-badge badge-frozen">❄️ Frozen</span>
-        </div>
-        <div class="freeze-item-card defrosting">
-          <div class="freeze-item-emoji">🥩</div>
-          <div>
-            <div class="freeze-item-name">Beef Mince</div>
-            <div class="freeze-item-date">Use by: Tonight 11pm</div>
-          </div>
-          <span class="freeze-item-badge badge-defrost">Defrosting</span>
-        </div>
-        <div class="freeze-item-card fresh">
-          <div class="freeze-item-emoji">🍞</div>
-          <div>
-            <div class="freeze-item-name">Sourdough Loaf</div>
-            <div class="freeze-item-date">Frozen use by: 14 Sep 2026</div>
-          </div>
-          <span class="freeze-item-badge badge-frozen">❄️ Frozen</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEW -->
-<div class="review-section">
-  <div class="review-inner">
-    <div class="stars">★★★★★</div>
-    <p class="review-quote">"I was constantly having food go to waste and it was so frustrating because it's so expensive. Now I log the food in my fridge and it generates meals to make with the food that is expiring. It's pretty incredible."</p>
-    <p class="review-author">Verified App Store review — May 2026</p>
-    <div class="review-source">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      App Store · 5.0 · Food &amp; Drink
-    </div>
+<div class="testimonial-section">
+  <div class="testimonial-inner">
+    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <p class="testimonial-quote">"I was constantly having food go to waste and it was so frustrating because it's so expensive. Now I log the food in my fridge and it generates meals to make with the food that is expiring. It's pretty incredible."</p>
+    <p class="testimonial-author">Verified App Store review — May 2026</p>
   </div>
 </div>
 
-<!-- PRICING -->
-<section id="pricing" class="pricing-bg">
-  <div class="section-inner" style="text-align:center;">
-    <p class="section-label">Pricing</p>
-    <h2 class="section-title">Simple, honest pricing</h2>
-    <p class="section-sub" style="margin:0 auto;">Free to download. Upgrade when you're ready for the full experience.</p>
-
-    <div class="pricing-grid">
-
-      <div class="pricing-card">
-        <div class="pricing-tier">Free</div>
-        <div class="pricing-price"><sup>£</sup>0</div>
-        <div class="pricing-cadence">forever</div>
-        <ul class="pricing-features">
-          <li>
-            <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            AI camera scanner
-          </li>
-          <li>
-            <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Up to 10 food items
-          </li>
-          <li>
-            <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Expiry calendar
-          </li>
-          <li>
-            <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Push notifications
-          </li>
-          <li>
-            <span class="pricing-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-            Meal planner
-          </li>
-          <li>
-            <span class="pricing-x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-            Family sharing
-          </li>
-        </ul>
-        <a href="https://apps.apple.com/us/app/freshdate/id6761342011" class="btn-pricing btn-pricing-free">Download Free</a>
-      </div>
-
-      <div class="pricing-card featured">
-        <div class="pricing-badge">BEST VALUE — SAVE 33%</div>
-        <div class="pricing-tier">Premium Annual</div>
-        <div class="pricing-price"><sup>£</sup>39.99</div>
-        <div class="pricing-cadence">per year — just £3.33/month</div>
-        <ul class="pricing-features">
-          <li>
-            <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Everything in Free
-          </li>
-          <li>
-            <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Unlimited food items
-          </li>
-          <li>
-            <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            AI weekly meal planner
-          </li>
-          <li>
-            <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Family sharing &amp; profiles
-          </li>
-          <li>
-            <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Full nutrition data
-          </li>
-          <li>
-            <span class="pricing-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Smart recipe suggestions
-          </li>
-        </ul>
-        <a href="https://apps.apple.com/us/app/freshdate/id6761342011" class="btn-pricing btn-pricing-premium">Get Premium — £39.99/yr</a>
-      </div>
-
-    </div>
-
-    <p style="margin-top:20px; font-size:13px; color:var(--slate-400);">Monthly plan also available at £4.99/month. Cancel anytime.</p>
+<section id="pricing">
+  <div class="section-header centered">
+    <p class="section-eyebrow">Pricing</p>
+    <h2 class="section-title">Simple, transparent pricing</h2>
+    <p class="section-description">Free to download. Upgrade when you need more.</p>
   </div>
+
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-tier">Free</div>
+      <div class="pricing-amount">&pound;0</div>
+      <div class="pricing-period">forever</div>
+      <ul class="pricing-list">
+        <li>AI camera scanner</li>
+        <li>Up to 10 food items</li>
+        <li>Expiry calendar</li>
+        <li>Push notifications</li>
+        <li class="disabled">AI meal planner</li>
+        <li class="disabled">Family sharing</li>
+      </ul>
+      <a href="https://apps.apple.com/us/app/freshdate/id6761342011" class="btn-pricing light">Download free</a>
+    </div>
+    <div class="pricing-card highlighted">
+      <div class="pricing-label">Best value — save 33%</div>
+      <div class="pricing-tier">Premium</div>
+      <div class="pricing-amount">&pound;39.99 <span>/yr</span></div>
+      <div class="pricing-period">Just &pound;3.33 per month, billed annually</div>
+      <ul class="pricing-list">
+        <li>Everything in Free</li>
+        <li>Unlimited food items</li>
+        <li>AI weekly meal planner</li>
+        <li>Family sharing &amp; profiles</li>
+        <li>Full nutrition data</li>
+        <li>Smart recipe suggestions</li>
+      </ul>
+      <a href="https://apps.apple.com/us/app/freshdate/id6761342011" class="btn-pricing dark">Get Premium</a>
+    </div>
+  </div>
+  <p style="text-align:center; margin-top:16px; font-size:13px; color:var(--text-tertiary);">Also available monthly at &pound;4.99/month. Cancel anytime.</p>
 </section>
 
-<!-- CTA -->
-<div class="cta-section">
-  <h2>The average UK family wastes<br>£730 of food every year.</h2>
+<div class="divider"><div class="divider-line"></div></div>
+
+<section class="cta-section">
+  <h2>The average UK family wastes<br>&pound;730 of food every year.</h2>
   <p>FreshDate pays for itself in the first week.</p>
-  <div class="cta-badges">
-    <a href="https://apps.apple.com/us/app/freshdate/id6761342011">
-      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+  <div class="hero-buttons">
+    <a href="https://apps.apple.com/us/app/freshdate/id6761342011" class="btn-dark">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on App Store
     </a>
+    <a href="mailto:info@freshdate.co.uk" class="btn-outline">Get in touch</a>
   </div>
-</div>
+</section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <a href="/" class="footer-logo">
+    <div class="footer-left">
       <img src="icon.png" alt="FreshDate">
-      <span class="footer-logo-text">FreshDate</span>
-    </a>
-    <div class="footer-links">
-      <a href="/privacy">Privacy Policy</a>
-      <a href="/terms">Terms of Use</a>
-      <a href="mailto:info@freshdate.co.uk">Contact</a>
-      <a href="https://apps.apple.com/us/app/freshdate/id6761342011">App Store</a>
+      <span>&copy; 2026 FreshDate Ltd. Registered in England &amp; Wales.</span>
     </div>
-    <p class="footer-copy">&copy; 2026 FreshDate Ltd. All rights reserved. Registered in England &amp; Wales.</p>
+    <div class="footer-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="mailto:info@freshdate.co.uk">Contact</a>
+    </div>
   </div>
 </footer>
 
