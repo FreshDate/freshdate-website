@@ -175,7 +175,7 @@
     <li><strong>Push notification token:</strong> Required to deliver expiry reminders to your device.</li>
   </ul>
   <h3>3.3 Camera &amp; Image Data</h3>
-  <p>When you use the AI scanner, the photo is sent to our server and on to Google Gemini. For a photo of a food label, it reads the use-by date. For a photo of a receipt, it also reads the shop name, the date, every item on the receipt and what each one cost. Images are not stored permanently — they are processed and then discarded. We do not retain photographs of your food labels or your receipts.</p>
+  <p>When you use the AI scanner, the photo is sent to our server and on to Google Gemini. For a photo of a food label, it reads the use-by date. For a photo of a receipt, the whole image is sent and only the item names, prices and quantities are returned &mdash; the shop name, the receipt date and any card or loyalty numbers printed on it are not extracted or stored, and the purchase date we record is the day you scan. Images are not stored permanently — they are processed and then discarded. We do not retain photographs of your food labels or your receipts.</p>
 
   <h2>4. How We Use Your Information</h2>
   <table>
@@ -205,7 +205,7 @@
     <tbody>
       <tr><td>Supabase</td><td>Database &amp; authentication</td><td><a href="https://supabase.com/privacy">supabase.com/privacy</a></td></tr>
       <tr><td>RevenueCat</td><td>Subscription management</td><td><a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></td></tr>
-      <tr><td>Google (Gemini)</td><td>Reads use-by dates from food labels, and the shop, date, items and prices from receipts</td><td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td></tr>
+      <tr><td>Google (Gemini)</td><td>Reads use-by dates from food labels, and item names, prices and quantities from receipts (shop, date and card details are not extracted)</td><td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td></tr>
       <tr><td>Apple / Google</td><td>App distribution &amp; in-app purchases</td><td>See respective platform policies</td></tr>
     </tbody>
   </table>
